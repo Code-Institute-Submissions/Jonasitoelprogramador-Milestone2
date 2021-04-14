@@ -1,35 +1,38 @@
 let map;
+let service;
+let infowindow;
 
 function initMap() {
-    var center = new google.maps.LatLng(20.422, -100.084058)
+    const lewes = new google.maps.LatLng(50.8739, 0.0088);
+    infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById("map"), {
-        center: center,
-        zoom: 8,
+        center: lewes,
+        zoom: 15,
     });
-
-    var request = {
-        location = center,
-        radius = 8047,
-        types = ['cafe']
+    const request = {
+        keyword: "tennis",
+        location: lewes,
+        radius: 10000,
     };
-
-    var service = new google.maps.PlacesService(map);
-
-    service.nearbySearch(request, callback);
-}
-
-function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+            for (let i = 0; i < results.length; i++) {
+                createMarker(results[i]);
+            }
+            map.setCenter(results[0].geometry.location);
         }
-    }
+    });
 }
 
 function createMarker(place) {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location
+    if (!place.geometry || !place.geometry.location) return;
+    const marker = new google.maps.Marker({
+        map,
+        position: place.geometry.location,
+    });
+    google.maps.event.addListener(marker, "click", () => {
+        infowindow.setContent(place.name || "");
+        infowindow.open(map);
     });
 }
