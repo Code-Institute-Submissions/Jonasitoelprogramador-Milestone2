@@ -7,7 +7,7 @@ function initMap() {
     infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById("map"), {
         center: lewes,
-        zoom: 15,
+        zoom: 12,
     });
     const request = {
         keyword: "tennis",
@@ -20,7 +20,7 @@ function initMap() {
             for (let i = 0; i < results.length; i++) {
                 createMarker(results[i]);
             }
-            map.setCenter(results[0].geometry.location);
+            map.setCenter(lewes);
         }
     });
 }
@@ -31,8 +31,8 @@ function createMarker(place) {
         map,
         position: place.geometry.location,
     });
-    google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(place.name || "");
-        infowindow.open(map);
+    google.maps.event.addListener(marker, "click", function () {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
     });
 }
