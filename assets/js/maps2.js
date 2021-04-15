@@ -10,12 +10,16 @@ function initMap() {
         zoom: 8,
     });
     const request = {
-        query: "bar",
+        query: "padel",
         location: {
-            lat: 36.7212,
-            lng: 4.4217,
+            lat: 43.60426,
+            lng: 1.44367
         },
-        radius: 50000
+        radius: 100000,
+        /*bounds: LatLngBounds([
+            new google.maps.LatLng(36.51543, -4.88583),
+            new google.maps.LatLng(42.69764, 2.89541)
+        ]),*/
     };
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, (results, status) => {
