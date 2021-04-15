@@ -7,20 +7,22 @@ function initMap() {
     infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById("map"), {
         center: lewes,
-        zoom: 12,
+        zoom: 8,
     });
     const request = {
-        keyword: "tennis",
-        location: lewes,
-        radius: 10000,
+        query: "bar",
+        location: {
+            lat: 36.7212,
+            lng: 4.4217,
+        },
+        radius: 50000
     };
     service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, (results, status) => {
+    service.textSearch(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK && results) {
             for (let i = 0; i < results.length; i++) {
                 details(results[i]);
             }
-            map.setCenter(lewes);
         }
     });
 }
@@ -46,8 +48,6 @@ function details(place) {
                     "<div><strong>" +
                     place.name +
                     "</strong><br>" +
-                    "Place ID: " +
-                    place.place_id +
                     "<br>" +
                     place.formatted_address +
                     "</div>"
