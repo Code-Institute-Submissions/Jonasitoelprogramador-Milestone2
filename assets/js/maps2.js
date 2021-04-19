@@ -12,8 +12,8 @@ function initMap() {
     const request = {
         query: "tennis",
         location: {
-            lat: 48.8566,
-            lng: 2.3522
+            lat: 51.5074,
+            lng: 0.1278
         },
         radius: 10000,
         /*bounds: LatLngBounds([
@@ -25,11 +25,9 @@ function initMap() {
     service.textSearch(request, callback);
 
     function callback(results, status) {
-        console.log(results);
         if (status === google.maps.places.PlacesServiceStatus.OK && results) {
             for (let i = 0; i < results.length; i++) {
                 details(results[i]);
-                console.log(results[i]);
             }
         }
         /*if (results.hasNextPage == True) {
@@ -41,34 +39,31 @@ function initMap() {
 };
 
 
-function details(place) {
+function details(searchResult) {
     var quest = {
-        placeId: place.place_id,
-        fields: ["name", "formatted_address", "place_id", "geometry"],
+        placeId: searchResult.place_id,
+        fields: ["rating"],
     };
-    service.getDetails(quest, (place, status) => {
-        /*if (
-            status === google.maps.places.PlacesServiceStatus.OK &&
-            place &&
-            place.geometry &&
-            place.geometry.location)*/
-        {
-            console.log(place)
-            const marker = new google.maps.Marker({
-                map,
-                position: place.geometry.location,
-            });
-            google.maps.event.addListener(marker, "click", function () {
-                infowindow.setContent(
-                    "<div><strong>" +
-                    place.name +
-                    "</strong><br>" +
-                    "<br>" +
-                    place.formatted_address +
-                    "</div>"
-                );
-                infowindow.open(map, this);
-            })
-        };
-    })
+    console.log(searchResult.rating);
+    service.getDetails(quest, callback2);
 }
+
+function callback2(target, status) {
+    console.log(target)
+}
+
+
+
+
+
+
+
+
+
+
+
+/*if (
+    status === google.maps.places.PlacesServiceStatus.OK &&
+    place &&
+    place.geometry &&
+    place.geometry.location)*/

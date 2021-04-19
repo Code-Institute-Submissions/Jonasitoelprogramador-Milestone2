@@ -12,8 +12,8 @@ function initMap() {
     const request = {
         query: "tennis",
         location: {
-            lat: 48.8566,
-            lng: 2.3522
+            lat: 50.8739,
+            lng: 0.0088
         },
         radius: 10000,
         /*bounds: LatLngBounds([
@@ -30,23 +30,22 @@ function callback(results, status, pagination) {
         for (let i = 0; i < results.length; i++) {
             createMarker(results[i]);
             console.log(results[i]);
+            console.log(results[i].rating);
         }
     }
     pagination.nextPage();
 }
 
-
 function createMarker(input) {
-
     const marker = new google.maps.Marker({
         map,
         position: input.geometry.location,
     });
     google.maps.event.addListener(marker, "click", function () {
         infowindow.setContent(
-            "<div><strong>" +
+            "<strong><div>" +
+            input.rating + "</div></strong>" +
             input.name +
-            "</strong><br>" +
             "<br>" +
             input.formatted_address +
             "</div>"
