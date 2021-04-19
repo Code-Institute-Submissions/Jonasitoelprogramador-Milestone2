@@ -23,26 +23,21 @@ function initMap() {
     };
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, callback);
+}
 
-    function callback(results, status) {
-        console.log(results);
-        if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-            for (let i = 0; i < results.length; i++) {
-                createMarker(results[i]);
-                console.log(results[i]);
-            }
+function callback(results, status, pagination) {
+    if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+        for (let i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+            console.log(results[i]);
         }
-        /*if (results.hasNextPage == True) {
-            results.nextPage()
-        } else {
-            map.center = (36.51543, -4.88583)
-        }*/
     }
-};
+    pagination.nextPage();
+}
 
 
 function createMarker(input) {
-    console.log(input)
+
     const marker = new google.maps.Marker({
         map,
         position: input.geometry.location,
