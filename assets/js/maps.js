@@ -12,8 +12,8 @@ function initMap() {
     const request = {
         query: "tennis",
         location: {
-            lat: 50.8739,
-            lng: 0.0088
+            lat: 51.5074,
+            lng: 0.1278
         },
         radius: 10000,
         /*bounds: LatLngBounds([
@@ -28,9 +28,8 @@ function initMap() {
 function callback(results, status, pagination) {
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
         for (let i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-            console.log(results[i]);
-            console.log(results[i].rating);
+            /*createMarker(results[i]);*/
+            cresults[i].rating
         }
     }
     pagination.nextPage();
