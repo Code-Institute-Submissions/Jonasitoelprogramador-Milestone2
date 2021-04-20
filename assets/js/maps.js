@@ -26,13 +26,21 @@ function initMap() {
 }
 
 function callback(results, status, pagination) {
+    var ratingList = [];
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
         for (let i = 0; i < results.length; i++) {
             /*createMarker(results[i]);*/
-            cresults[i].rating
+            ratingList.push(results[i].rating)
         }
     }
     pagination.nextPage();
+    console.log(results);
+    console.log(ratingList);
+    /*var dict = {};
+    for (var i = 0; i < results.length; i++) {
+        dict[results[i]] = ratingList[i];
+    }
+    console.log(dict)*/
 }
 
 function createMarker(input) {
