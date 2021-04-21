@@ -1,6 +1,9 @@
 let map;
 let service;
 let infowindow;
+let ratingList = [];
+let allResults = [];
+let reliableRatings = [];
 
 function initMap() {
     const lewes = new google.maps.LatLng(50.8739, 0.0088);
@@ -23,47 +26,55 @@ function initMap() {
     };
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, callback);
+}
 
-    function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-            for (let i = 0; i < results.length; i++) {
-                details(results[i]);
-            }
+function callback(results, status, pagination) {
+    if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+        for (let i = 0; i < results.length; i++) {
+            /*createMarker(results[i]);*/
+            allResults.push(results[i]);
         }
-        /*if (results.hasNextPage == True) {
-            results.nextPage()
-        } else {
-            map.center = (36.51543, -4.88583)
-        }*/
     }
-};
-
-
-function details(searchResult) {
-    var quest = {
-        placeId: searchResult.place_id,
-        fields: ["rating"],
-    };
-    console.log(searchResult.rating);
-    service.getDetails(quest, callback2);
+    if (pagination.hasNextPage) {
+        pagination.nextPage();
+    } else {
+        createObject(allResults);
+    }
 }
 
-function callback2(target, status) {
-    console.log(target)
+function createObject(results) {
+    console.log(results);
+    for (let i = 0; i < results.length; i++) {
+        results[i].user_ratings_total;
+        if (results[i].user_ratings_total >= 15) {
+            reliableRatings.push(results[i])
+        }
+    }
+    console.log(reliableRatings)
+    /*The below is taken from stack overflow*/
+    /*var arr3 = {},
+        arr2 = [2, 4, 6];
+    arr1 = [2, 4, 6];
+    for (var i = 0; i < arr1.length; i++) {
+        arr3[arr1[i]] = arr2[i];
+    }
+    console.log(arr3)*/
 }
 
-
-
-
-
-
-
-
-
-
-
-/*if (
-    status === google.maps.places.PlacesServiceStatus.OK &&
-    place &&
-    place.geometry &&
-    place.geometry.location)*/
+function createMarker(input) {
+    const marker = new google.maps.Marker({
+        map,
+        position: input.geometry.location,
+    });
+    google.maps.event.addListener(marker, "click", function () {
+        infowindow.setContent(
+            "<strong><div>" +
+            input.rating + "</div></strong>" +
+            input.name +
+            "<br>" +
+            input.formatted_address +
+            "</div>"
+        );
+        infowindow.open(map, this);
+    })
+}

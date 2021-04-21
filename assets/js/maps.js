@@ -1,6 +1,8 @@
 let map;
 let service;
 let infowindow;
+let ratingList = [];
+let allResults = [];
 
 function initMap() {
     const lewes = new google.maps.LatLng(50.8739, 0.0088);
@@ -26,21 +28,32 @@ function initMap() {
 }
 
 function callback(results, status, pagination) {
-    var ratingList = [];
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
         for (let i = 0; i < results.length; i++) {
             /*createMarker(results[i]);*/
             ratingList.push(results[i].rating)
+            allResults.push(results[i]);
         }
     }
-    pagination.nextPage();
-    console.log(results);
-    console.log(ratingList);
-    /*var dict = {};
-    for (var i = 0; i < results.length; i++) {
-        dict[results[i]] = ratingList[i];
+    /*console.log(results);
+    console.log(ratingList);*/
+    if (pagination.hasNextPage) {
+        pagination.nextPage();
+    } else {
+        createObject(allResults, ratingList);
     }
-    console.log(dict)*/
+}
+
+function createObject(results, ratings) {
+    console.log(results);
+    console.log(ratings);
+    var arr3 = {},
+        arr2 = [2, 4, 6];
+    arr1 = [2, 4, 6];
+    for (var i = 0; i < arr1.length; i++) {
+        arr3[arr1[i]] = arr2[i];
+    }
+    console.log(arr3)
 }
 
 function createMarker(input) {
