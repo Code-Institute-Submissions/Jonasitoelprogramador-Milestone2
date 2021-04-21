@@ -4,6 +4,9 @@ let infowindow;
 let ratingList = [];
 let allResults = [];
 let reliableRatings = [];
+let reliableRatingsNumbers = [];
+let reliableRatingsName = [];
+let theList = [];
 
 function initMap() {
     const lewes = new google.maps.LatLng(50.8739, 0.0088);
@@ -15,8 +18,8 @@ function initMap() {
     const request = {
         query: "tennis",
         location: {
-            lat: 51.5074,
-            lng: 0.1278
+            lat: -22.908333,
+            lng: -43.196388
         },
         radius: 10000,
         /*bounds: LatLngBounds([
@@ -50,16 +53,45 @@ function createObject(results) {
             reliableRatings.push(results[i])
         }
     }
-    console.log(reliableRatings)
+    for (let i = 0; i < reliableRatings.length; i++) {
+        reliableRatingsNumbers.push(reliableRatings[i].rating);
+    }
+    for (let i = 0; i < reliableRatings.length; i++) {
+        reliableRatingsName.push(reliableRatings[i].name);
+    }
+    console.log(reliableRatings.length);
+    console.log(reliableRatingsName);
+    console.log(reliableRatingsNumbers);
     /*The below is taken from stack overflow*/
-    /*var arr3 = {},
-        arr2 = [2, 4, 6];
-    arr1 = [2, 4, 6];
+    var arr3 = {}
+    var arr2 = reliableRatingsNumbers;
+    var arr1 = reliableRatingsName;
     for (var i = 0; i < arr1.length; i++) {
         arr3[arr1[i]] = arr2[i];
     }
-    console.log(arr3)*/
+    console.log(arr3)
+    var arr3;
+    var sortable = [];
+    for (var rating in arr3) {
+        sortable.push([rating, arr3[rating]]);
+    }
+
+    sortable.sort(function (a, b) {
+        return a[1] - b[1];
+    });
+    console.log(sortable);
+
+    fiveBest = sortable.slice(Math.max(sortable.length - 5, 1));
+    for (var place in fiveBest) {
+        for (var sitio in reliableRatings) {
+            if (place[0] == sitio.name) {
+                theList.push(sitio);
+            }
+        }
+    }
+    console.log(theList);
 }
+
 
 function createMarker(input) {
     const marker = new google.maps.Marker({
