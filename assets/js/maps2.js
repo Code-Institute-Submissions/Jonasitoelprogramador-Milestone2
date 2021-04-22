@@ -95,14 +95,21 @@ function createObject(results) {
 
     numberFive = sortedOriginal[sortedOriginal.length - 5];
     for (var i = 0; i < sortedOriginal.length; i++) {
-        if (sortedOrignal[i].rating == numberFive.rating) {
+        if (sortedOriginal[i].rating == numberFive.rating) {
             cullList.push(sortedOriginal[i]);
         }
     };
+    /*taken from https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/ */
+    cullList.sort((a, b) => {
+        if (a.user_ratings_total > b.user_ratings_total) {
+            return 1
+        } else {
+            return -1
+        }
+    })
+    console.log(cullList);
 
-    for (var i = 0; i < cullList.length; i++) {
-
-    };
+    /*need to work out how many of the top 5 have the same value as fifth value and add in the correct amount back into the topfive list*/
 
 
     fiveBest = sortable.slice(Math.max(sortable.length - 5, 1));
@@ -116,7 +123,6 @@ function createObject(results) {
         }
     }
 }
-
 
 function createMarker(input) {
     const marker = new google.maps.Marker({
