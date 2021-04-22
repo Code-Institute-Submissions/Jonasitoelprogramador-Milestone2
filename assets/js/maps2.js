@@ -59,7 +59,6 @@ function createObject(results) {
     for (let i = 0; i < reliableRatings.length; i++) {
         reliableRatingsName.push(reliableRatings[i].name);
     }
-    console.log(reliableRatings.length);
     console.log(reliableRatingsName);
     console.log(reliableRatingsNumbers);
     /*The below is taken from stack overflow*/
@@ -82,10 +81,12 @@ function createObject(results) {
     console.log(sortable);
 
     fiveBest = sortable.slice(Math.max(sortable.length - 5, 1));
-    for (var place in fiveBest) {
-        for (var sitio in reliableRatings) {
-            if (place[0] == sitio.name) {
-                theList.push(sitio);
+    console.log(reliableRatings);
+    console.log(fiveBest);
+    for (var x = 0; x < fiveBest.length; x++) {
+        for (var i = 0; i < reliableRatings.length; i++) {
+            if (reliableRatings[i].name == fiveBest[x][0]) {
+                createMarker(reliableRatings[i]);
             }
         }
     }
