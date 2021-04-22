@@ -6,7 +6,7 @@ let allResults = [];
 let reliableRatings = [];
 let reliableRatingsNumbers = [];
 let reliableRatingsName = [];
-let theList = [];
+let sortedOriginal = [];
 
 function initMap() {
     const lewes = new google.maps.LatLng(50.8739, 0.0088);
@@ -16,10 +16,10 @@ function initMap() {
         zoom: 8,
     });
     const request = {
-        query: "tennis",
+        query: "restaurant",
         location: {
-            lat: -22.908333,
-            lng: -43.196388
+            lat: 13.193887,
+            lng: -59.543198
         },
         radius: 10000,
         /*bounds: LatLngBounds([
@@ -75,10 +75,25 @@ function createObject(results) {
         sortable.push([rating, arr3[rating]]);
     }
 
-    sortable.sort(function (a, b) {
+    var sorted = sortable.sort(function (a, b) {
         return a[1] - b[1];
     });
-    console.log(sortable);
+
+    console.log(reliableRatings);
+    console.log(sorted);
+
+    for (var x = 0; x < sorted.length; x++) {
+        for (var i = 0; i < reliableRatings.length; i++) {
+            if (reliableRatings[i].name == sorted[x][0]) {
+                sortedOriginal.push(reliableRatings[i])
+            }
+        }
+    }
+
+    console.log(sortedOriginal);
+
+    numberFive = sortable[sortable.length - 5];
+
 
     fiveBest = sortable.slice(Math.max(sortable.length - 5, 1));
     console.log(reliableRatings);
@@ -90,7 +105,6 @@ function createObject(results) {
             }
         }
     }
-    console.log(theList);
 }
 
 
