@@ -7,6 +7,7 @@ let reliableRatings = [];
 let reliableRatingsNumbers = [];
 let reliableRatingsName = [];
 let sortedOriginal = [];
+let cullList = [];
 
 function initMap() {
     const lewes = new google.maps.LatLng(50.8739, 0.0088);
@@ -92,7 +93,16 @@ function createObject(results) {
 
     console.log(sortedOriginal);
 
-    numberFive = sortable[sortable.length - 5];
+    numberFive = sortedOriginal[sortedOriginal.length - 5];
+    for (var i = 0; i < sortedOriginal.length; i++) {
+        if (sortedOrignal[i].rating == numberFive.rating) {
+            cullList.push(sortedOriginal[i]);
+        }
+    };
+
+    for (var i = 0; i < cullList.length; i++) {
+
+    };
 
 
     fiveBest = sortable.slice(Math.max(sortable.length - 5, 1));
