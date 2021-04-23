@@ -6,7 +6,7 @@ let allResults = [];
 let reliableRatings = [];
 let reliableRatingsNumbers = [];
 let reliableRatingsName = [];
-let sortedOriginal = [];
+let sortedDicts = [];
 let cullList = [];
 
 function initMap() {
@@ -86,17 +86,17 @@ function createObject(results) {
     for (var x = 0; x < sorted.length; x++) {
         for (var i = 0; i < reliableRatings.length; i++) {
             if (reliableRatings[i].name == sorted[x][0]) {
-                sortedOriginal.push(reliableRatings[i])
+                sortedDicts.push(reliableRatings[i])
             }
         }
     }
 
-    console.log(sortedOriginal);
+    console.log(sortedDicts);
 
-    numberFive = sortedOriginal[sortedOriginal.length - 5];
-    for (var i = 0; i < sortedOriginal.length; i++) {
-        if (sortedOriginal[i].rating == numberFive.rating) {
-            cullList.push(sortedOriginal[i]);
+    numberFive = sortedDicts[sortedDicts.length - 5];
+    for (var i = 0; i < sortedDicts.length; i++) {
+        if (sortedDicts[i].rating == numberFive.rating) {
+            cullList.push(sortedDicts[i]);
         }
     };
     /*taken from https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/ */
@@ -111,18 +111,30 @@ function createObject(results) {
 
     /*need to work out how many of the top 5 have the same value as fifth value and add in the correct amount back into the topfive list*/
 
-
-    fiveBest = sortable.slice(Math.max(sortable.length - 5, 1));
-    console.log(reliableRatings);
+    fiveBest = sortedDicts.slice(Math.max(sortedDicts.length - 5, 1));
     console.log(fiveBest);
-    for (var x = 0; x < fiveBest.length; x++) {
-        for (var i = 0; i < reliableRatings.length; i++) {
-            if (reliableRatings[i].name == fiveBest[x][0]) {
-                createMarker(reliableRatings[i]);
-            }
-        }
+    var counter = 0;
+    for (var i = 0; i < fiveBest.length; i++) {
+        if (fiveBest[i].rating == numberFive.rating) {
+            counter = counter + 1;
+        };
+    }
+    console.log(counter);
+
+    var stuntedList = fiveBest.slice(-(5 - counter));
+    console.log(stuntedList);
+    var theCullList = cullList.slice(-counter);
+    console.log(theCullList);
+    var theList = theCullList.concat(stuntedList);
+    /*var theList = stuntedList.push(cullList.slice(-counter));
+    console.log(theList);*/
+    console.log(theList);
+    for (var i = 0; i < theList.length; i++) {
+        createMarker(theList[i]);
     }
 }
+
+
 
 function createMarker(input) {
     const marker = new google.maps.Marker({
