@@ -17,10 +17,10 @@ function initMap() {
         zoom: 8,
     });
     const request = {
-        query: "restaurant",
+        query: "tennis",
         location: {
-            lat: 13.193887,
-            lng: -59.543198
+            lat: 43.2965,
+            lng: 5.3698
         },
         radius: 10000,
         /*bounds: LatLngBounds([
@@ -63,7 +63,7 @@ function createObject(results) {
     console.log(reliableRatingsName);
     console.log(reliableRatingsNumbers);
     /*The below is taken from stack overflow*/
-    var arr3 = {}
+    var arr3 = {};
     var arr2 = reliableRatingsNumbers;
     var arr1 = reliableRatingsName;
     for (var i = 0; i < arr1.length; i++) {
