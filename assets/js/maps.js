@@ -3,9 +3,10 @@ let service;
 let infowindow;
 let ratingList = [];
 let allResults = [];
-let reliableRatings = [];
-let cullList = [];
+let reliablePlaces = [];
+let sameRatingList = [];
 
+/*Function called when map initializes.  Centers map, builds Google's PLacesServices object and applies textSearch method to it.*/
 function initMap() {
     const lewes = new google.maps.LatLng(50.8739, 0.0088);
     infowindow = new google.maps.InfoWindow();
@@ -25,6 +26,7 @@ function initMap() {
     service.textSearch(request, callback);
 }
 
+/*Paginates through all textSearch results to get all 60 results and adds these to a list "allResults". Then calls createReliablePlaces function with allResults as an argument.*/
 function callback(results, status, pagination) {
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
         for (let i = 0; i < results.length; i++) {
@@ -34,47 +36,51 @@ function callback(results, status, pagination) {
     if (pagination.hasNextPage) {
         pagination.nextPage();
     } else {
-        createObject(allResults);
+        createReliablePlaces(allResults);
     }
 }
-
-function createObject(results) {
+/*Filters out any of the search results with fewer than 15 reviews then sorts these by their "rating" property*/
+function createReliablePlaces(results) {
     console.log(results);
     for (let i = 0; i < results.length; i++) {
         results[i].user_ratings_total;
         if (results[i].user_ratings_total >= 15) {
-            reliableRatings.push(results[i])
+            reliablePlaces.push(results[i])
         }
     }
 
-    reliableRatings.sort((a, b) => {
+    reliablePlaces.sort((a, b) => {
         if (a.rating > b.rating) {
             return 1
         } else {
             return -1
         }
     })
-    console.log(reliableRatings);
+    console.log(reliablePlaces);
+    createSameRatingList(reliablePlaces);
+}
 
-    numberFive = reliableRatings[reliableRatings.length - 5];
-    for (var i = 0; i < reliableRatings.length; i++) {
-        if (reliableRatings[i].rating == numberFive.rating) {
-            cullList.push(reliableRatings[i]);
+/*Finds all of the results that have the same rating property value as the result with the fifth best rating value.  
+A list is then created with all of these results.  This list is then sorted using the user_ratings_total property. 
+The next piece of code counts how many of the "fiveBest" array/list elements (the elements from the reliablePlaces 
+array that have the highest rating) have the same rating as the element with the fifth higest rating value. This is 
+counted using the counter variable.*/
+function createSameRatingList(reliablePlaces) {
+    numberFive = reliablePlaces[reliablePlaces.length - 5];
+    for (var i = 0; i < reliablePlaces.length; i++) {
+        if (reliablePlaces[i].rating == numberFive.rating) {
+            sameRatingList.push(reliablePlaces[i]);
         }
     };
     /*taken from https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/ */
-    cullList.sort((a, b) => {
+    sameRatingList.sort((a, b) => {
         if (a.user_ratings_total > b.user_ratings_total) {
             return 1
         } else {
             return -1
         }
     })
-    console.log(cullList);
-
-    /*need to work out how many of the top 5 have the same value as fifth value and add in the correct amount back into the topfive list*/
-
-    fiveBest = reliableRatings.slice(Math.max(reliableRatings.length - 5, 1));
+    fiveBest = reliablePlaces.slice(Math.max(reliablePlaces.length - 5, 1));
     console.log(fiveBest);
     var counter = 0;
     for (var i = 0; i < fiveBest.length; i++) {
@@ -82,20 +88,23 @@ function createObject(results) {
             counter = counter + 1;
         };
     }
-    console.log(counter);
+    createFinalList(sameRatingList, fiveBest, counter);
+}
 
-    var stuntedList = fiveBest.slice(-(5 - counter));
-    console.log(stuntedList);
-    var theCullList = cullList.slice(-counter);
-    console.log(theCullList);
-    var theList = theCullList.concat(stuntedList);
+/*The counter variable is used to manipulate the final list that is passed to the createMarker function
+ in order that if several places have the same rating, the ones that are included in the final list are 
+ prioritized by the number of reviews that they have.*/
+function createFinalList(sameRatingList, fiveBest, counter) {
+    var temporaryList = fiveBest.slice(-(5 - counter));
+    console.log(temporaryList);
+    var mostReviewsList = sameRatingList.slice(-counter);
+    console.log(mostReviewsList);
+    var theList = mostReviewsList.concat(temporaryList);
     console.log(theList);
     for (var i = 0; i < theList.length; i++) {
         createMarker(theList[i]);
     }
 }
-
-
 
 function createMarker(input) {
     const marker = new google.maps.Marker({
