@@ -15,10 +15,10 @@ function initMap() {
         zoom: 8,
     });
     const request = {
-        query: "coffeeshop",
+        query: "tennis",
         location: {
-            lat: 52.4862,
-            lng: -1.8904
+            lat: 52.58547,
+            lng: -2.12296
         },
         radius: 10000,
     };
@@ -62,8 +62,8 @@ function createReliablePlaces(results) {
 
 /*Finds all of the results that have the same rating property value as the result with the fifth best rating value.  
 A list is then created with all of these results.  This list is then sorted using the user_ratings_total property. 
-The next piece of code counts how many of the "fiveBest" array/list elements (the elements from the reliablePlaces 
-array that have the highest rating) have the same rating as the element with the fifth higest rating value. This is 
+The next piece of code counts how many of the "fiveBest" array/list elements (the 5 elements from the reliablePlaces 
+array with the highest rating) have the same rating as the element with the fifth higest rating value. This is 
 counted using the counter variable.*/
 function createSameRatingList(reliablePlaces) {
     numberFive = reliablePlaces[reliablePlaces.length - 5];
@@ -122,4 +122,17 @@ function createMarker(input) {
         );
         infowindow.open(map, this);
     })
+}
+
+var xhr = new XMLHttpRequest();
+var data;
+
+xhr.open("GET", "https://api.opencagedata.com/geocode/v1/json?q=London&key=9b798510a3344259b8f4f319f7935472");
+xhr.send();
+
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        data = this.responseText;
+        console.log(data.geometry);
+    };
 }
