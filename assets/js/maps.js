@@ -124,7 +124,7 @@ function createMarker(input) {
     })
 }
 
-var xhr = new XMLHttpRequest();
+/*var xhr = new XMLHttpRequest();
 var data;
 
 xhr.open("GET", "https://api.opencagedata.com/geocode/v1/json?q=London&key=9b798510a3344259b8f4f319f7935472");
@@ -133,6 +133,35 @@ xhr.send();
 xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         data = this.responseText;
-        console.log(data.geometry);
+        let jsonData = JSON.parse(data);
+        console.log(jsonData.results[0].geometry);
     };
+}*/
+
+/*this is taken from code institue*/
+function getData(cb) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "https://api.opencagedata.com/geocode/v1/json?q=London&key=9b798510a3344259b8f4f319f7935472");
+    xhr.send();
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let jsonData = JSON.parse(this.responseText);
+            cb((jsonData.results[0].geometry));
+        }
+    };
+}
+
+function printDataToConsole(data) {
+    console.log(data);
+};
+
+getData(printDataToConsole);
+
+let form = document.getElementById('city');
+form.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+    event.preventDefault();
 }
