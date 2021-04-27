@@ -138,11 +138,22 @@ xhr.onreadystatechange = function () {
     };
 }*/
 
+/*Taken from stack overflow https://stackoverflow.com/questions/5384712/intercept-a-form-submit-in-javascript-and-prevent-normal-submission*/
+window.addEventListener("load", takeCityInput)
+
+function takeCityInput() {
+    document.getElementById('my-form').addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        console.log(document.getElementById('my-form').elements['city'].value);
+    })
+}
+
 /*this is taken from code institue*/
-function getData(cb) {
+/*function getData(cb) {
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "https://api.opencagedata.com/geocode/v1/json?q=London&key=9b798510a3344259b8f4f319f7935472");
+    xhr.open("GET", `https://api.opencagedata.com/geocode/v1/json?q=(${output}&key=9b798510a3344259b8f4f319f7935472`);
     xhr.send();
 
     xhr.onreadystatechange = function () {
@@ -156,12 +167,4 @@ function getData(cb) {
 function printDataToConsole(data) {
     console.log(data);
 };
-
-getData(printDataToConsole);
-
-let form = document.getElementById('city');
-form.addEventListener('submit', handleSubmit);
-
-function handleSubmit(event) {
-    event.preventDefault();
-}
+getData(printDataToConsole);*/

@@ -13,8 +13,13 @@
 
 <body>
     <div id="map"></div>
-    <label for="city">Username:</label>
-    <input id="city" name="city" type="text" required>
+    <form id="my-form">
+        <div class="city">
+            <label for="city">Username:</label>
+            <input type="text" id="city" name="city">
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoDw6GaX-GKeW9C2APijHBoNM8-z48Zyw&libraries=places&callback=initMap">
     </script>
