@@ -124,20 +124,6 @@ function createMarker(input) {
     })
 }
 
-/*var xhr = new XMLHttpRequest();
-var data;
-
-xhr.open("GET", "https://api.opencagedata.com/geocode/v1/json?q=London&key=9b798510a3344259b8f4f319f7935472");
-xhr.send();
-
-xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        data = this.responseText;
-        let jsonData = JSON.parse(data);
-        console.log(jsonData.results[0].geometry);
-    };
-}*/
-
 /*Taken from stack overflow https://stackoverflow.com/questions/5384712/intercept-a-form-submit-in-javascript-and-prevent-normal-submission*/
 window.addEventListener("load", takeCityInput)
 
