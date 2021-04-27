@@ -14,16 +14,49 @@ function initMap() {
         center: lewes,
         zoom: 8,
     });
-    const request = {
-        query: "tennis",
-        location: {
-            lat: 52.58547,
-            lng: -2.12296
-        },
-        radius: 10000,
-    };
-    service = new google.maps.places.PlacesService(map);
-    service.textSearch(request, callback);
+}
+
+/*Taken from stack overflow https://stackoverflow.com/questions/5384712/intercept-a-form-submit-in-javascript-and-prevent-normal-submission*/
+window.addEventListener("load", takeCityInput);
+
+function takeCityInput() {
+    document.getElementById('my-form').addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        output = document.getElementById('my-form').elements['city'].value;
+        console.log("hi");
+        nameToCoord(output);
+    })
+};
+
+function nameToCoord(output) {
+    /*this is taken from code institue*/
+    function getData(cb) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET", `https://api.opencagedata.com/geocode/v1/json?q=(${output}&key=9b798510a3344259b8f4f319f7935472`);
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let jsonData = JSON.parse(this.responseText);
+                cb((jsonData.results[0].geometry));
+                console.log(jsonData.results[0].geometry);
+            }
+        };
+    }
+
+    function createTextSearchRequest(data) {
+        const request = {
+            query: "tennis",
+            location: data,
+            radius: 10000,
+        };
+        service = new google.maps.places.PlacesService(map);
+        service.textSearch(request, callback);
+    }
+    getData(createTextSearchRequest);
+
 }
 
 /*Paginates through all textSearch results to get all 60 results and adds these to a list "allResults". Then calls createReliablePlaces function with allResults as an argument.*/
@@ -123,34 +156,3 @@ function createMarker(input) {
         infowindow.open(map, this);
     })
 }
-
-/*Taken from stack overflow https://stackoverflow.com/questions/5384712/intercept-a-form-submit-in-javascript-and-prevent-normal-submission*/
-window.addEventListener("load", takeCityInput)
-
-function takeCityInput() {
-    document.getElementById('my-form').addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        console.log(document.getElementById('my-form').elements['city'].value);
-    })
-}
-
-/*this is taken from code institue*/
-/*function getData(cb) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("GET", `https://api.opencagedata.com/geocode/v1/json?q=(${output}&key=9b798510a3344259b8f4f319f7935472`);
-    xhr.send();
-
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            let jsonData = JSON.parse(this.responseText);
-            cb((jsonData.results[0].geometry));
-        }
-    };
-}
-
-function printDataToConsole(data) {
-    console.log(data);
-};
-getData(printDataToConsole);*/
