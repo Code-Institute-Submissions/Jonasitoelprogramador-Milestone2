@@ -21,33 +21,34 @@ function takeCityInput() {
     document.getElementById('my-form').addEventListener("submit", function (e) {
         e.preventDefault();
 
-        output = document.getElementById('my-form').elements['city'].value;
-        console.log("hi");
-        nameToCoord(output);
+        cityIntput = document.getElementById('my-form').elements['city'].value;
+        typeOfPlaceInput = document.getElementById('my-form').elements['type_of_place'].value;
+        nameToCoord(cityIntput, typeOfPlaceInput);
     })
 };
 
-function nameToCoord(output) {
+function nameToCoord(cityIntput, typeOfPlaceInput) {
     /*this is taken from code institue*/
     function getData(cb) {
         var xhr = new XMLHttpRequest();
 
-        xhr.open("GET", `https://api.opencagedata.com/geocode/v1/json?q=(${output}&key=9b798510a3344259b8f4f319f7935472`);
+        xhr.open("GET", `https://api.opencagedata.com/geocode/v1/json?q=(${cityIntput}&key=9b798510a3344259b8f4f319f7935472`);
         xhr.send();
 
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 let jsonData = JSON.parse(this.responseText);
-                cb((jsonData.results[0].geometry));
-                console.log(jsonData.results[0].geometry);
+                cb(jsonData.results[0].geometry, typeOfPlaceInput);
+                console.log(typeOfPlaceInput);
             }
         };
     }
 
-    function createTextSearchRequest(data) {
+    function createTextSearchRequest(coords, typeOfPlace) {
+        console.log(coords);
         const request = {
-            query: "restaurant",
-            location: data,
+            query: typeOfPlace,
+            location: coords,
             radius: 10000,
         };
         service = new google.maps.places.PlacesService(map);
