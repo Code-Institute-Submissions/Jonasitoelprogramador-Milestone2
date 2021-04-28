@@ -38,8 +38,9 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 let jsonData = JSON.parse(this.responseText);
-                cb(jsonData.results[0].geometry, typeOfPlaceInput);
-                console.log(typeOfPlaceInput);
+                if (typeof jsonData.results[0].geometry == undefined) {} else {
+                    cb(jsonData.results[0].geometry, typeOfPlaceInput)
+                };
             }
         };
     }
@@ -140,6 +141,7 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     for (var i = 0; i < theList.length; i++) {
         createMarker(theList[i]);
     }
+    document.getElementById('error_messages').innerHTML = "Try a different 'Type of Place'"
 }
 
 function createMarker(input) {
