@@ -20,7 +20,8 @@ window.addEventListener("load", takeCityInput);
 function takeCityInput() {
     document.getElementById('my-form').addEventListener("submit", function (e) {
         e.preventDefault();
-
+        document.getElementById('error_messages').innerHTML = ""
+        document.getElementById('loader').className = "loader";
         cityIntput = document.getElementById('my-form').elements['city'].value;
         typeOfPlaceInput = document.getElementById('my-form').elements['type_of_place'].value;
         nameToCoord(cityIntput, typeOfPlaceInput);
@@ -38,7 +39,11 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 let jsonData = JSON.parse(this.responseText);
-                if (typeof jsonData.results[0].geometry == undefined) {} else {
+                console.log(jsonData);
+                if (jsonData.results.length == 0) {
+                    document.getElementById('error_messages').innerHTML = "Invalid City or Type of Place";
+                    document.getElementById('loader').className = "";
+                } else {
                     cb(jsonData.results[0].geometry, typeOfPlaceInput)
                 };
             }
@@ -70,6 +75,7 @@ function callback(results, status, pagination) {
         pagination.nextPage();
     } else {
         createReliablePlaces(allResults);
+        document.getElementById('loader').className = "";
         allResults = [];
     }
 }
@@ -138,10 +144,13 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     console.log(mostReviewsList);
     var theList = mostReviewsList.concat(temporaryList);
     console.log(theList);
-    for (var i = 0; i < theList.length; i++) {
-        createMarker(theList[i]);
+    if (theList.length == 0) {
+        document.getElementById('error_messages').innerHTML = "Invalid City or Type of Place"
+    } else {
+        for (var i = 0; i < theList.length; i++) {
+            createMarker(theList[i]);
+        }
     }
-    document.getElementById('error_messages').innerHTML = "Try a different 'Type of Place'"
 }
 
 function createMarker(input) {
