@@ -1,10 +1,8 @@
 let map;
 let service;
 let infowindow;
-let ratingList = [];
 let allResults = [];
-let reliablePlaces = [];
-let sameRatingList = [];
+
 
 /*Function called when map initializes.  Centers map, builds Google's PLacesServices object and applies textSearch method to it.*/
 function initMap() {
@@ -48,7 +46,7 @@ function nameToCoord(output) {
 
     function createTextSearchRequest(data) {
         const request = {
-            query: "tennis",
+            query: "restaurant",
             location: data,
             radius: 10000,
         };
@@ -61,7 +59,7 @@ function nameToCoord(output) {
 
 /*Paginates through all textSearch results to get all 60 results and adds these to a list "allResults". Then calls createReliablePlaces function with allResults as an argument.*/
 function callback(results, status, pagination) {
-    if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (let i = 0; i < results.length; i++) {
             allResults.push(results[i]);
         }
@@ -70,18 +68,21 @@ function callback(results, status, pagination) {
         pagination.nextPage();
     } else {
         createReliablePlaces(allResults);
+        allResults = [];
     }
 }
+
 /*Filters out any of the search results with fewer than 15 reviews then sorts these by their "rating" property*/
 function createReliablePlaces(results) {
     console.log(results);
+    reliablePlaces = [];
     for (let i = 0; i < results.length; i++) {
         results[i].user_ratings_total;
         if (results[i].user_ratings_total >= 15) {
             reliablePlaces.push(results[i])
         }
     }
-
+    console.log(reliablePlaces);
     reliablePlaces.sort((a, b) => {
         if (a.rating > b.rating) {
             return 1
@@ -99,6 +100,7 @@ The next piece of code counts how many of the "fiveBest" array/list elements (th
 array with the highest rating) have the same rating as the element with the fifth higest rating value. This is 
 counted using the counter variable.*/
 function createSameRatingList(reliablePlaces) {
+    let sameRatingList = [];
     numberFive = reliablePlaces[reliablePlaces.length - 5];
     for (var i = 0; i < reliablePlaces.length; i++) {
         if (reliablePlaces[i].rating == numberFive.rating) {
