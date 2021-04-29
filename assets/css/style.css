@@ -22,3 +22,18 @@
         transform: rotate(360deg);
     }
 }
+
+.centre-50 {
+    margin: auto;
+    width: 50%;
+}
+
+.centre-100 {
+    margin: auto;
+    width: 100%;
+}
+
+.centre-80 {
+    margin: auto;
+    width: 80%;
+}

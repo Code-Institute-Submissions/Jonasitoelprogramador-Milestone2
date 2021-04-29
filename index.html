@@ -8,30 +8,51 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <script src="assets/js/maps.js"></script>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+<header>
+    <div>
+        <div class="centre-50">
+            <h1 class="centre-50">City Search</h1>
+        </div>
+        <div class="centre-50">
+            <h2>The <em>best</em> way to find the <em>best</em> places!</h2>
+        </div>
+    </div>
+</header>
 
 <body>
     <div id="map"></div>
-    <form id="my-form">
-        <div class="city">
-            <label for="city">City:</label>
-            <input type="text" id="city" name="city">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <form id="my-form">
+                    <div class="city">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="type_of_place">
+                        <label for="type_of_place">Type of Place:</label>
+                        <input type="text" id="type_of_place" name="type_of_place">
+                    </div>
+                    <div id="loader">
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit" />
+                    </div>
+                </form>
+                <button onClick="window.location.href=window.location.href">Refresh Markers</button>
+                <div>
+                    <p id="error_messages">
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
         </div>
-        <div class="type_of_place">
-            <label for="type_of_place">Type of Place:</label>
-            <input type="text" id="type_of_place" name="type_of_place">
-        </div>
-        <div id="loader">
-        </div>
-        <div>
-            <input type="submit" value="Submit" />
-        </div>
-    </form>
-    <button onClick="window.location.href=window.location.href">Refresh Markers</button>
-    <div>
-        <p id="error_messages">
-        </p>
     </div>
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoDw6GaX-GKeW9C2APijHBoNM8-z48Zyw&libraries=places&callback=initMap">
