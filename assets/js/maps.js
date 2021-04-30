@@ -92,6 +92,7 @@ function createReliablePlaces(results) {
     }
     console.log(reliablePlaces);
     reliablePlaces.sort((a, b) => {
+        // return a.rating > b.rating;
         if (a.rating > b.rating) {
             return 1
         } else {
@@ -146,6 +147,7 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     console.log(theList);
     if (theList.length == 0) {
         document.getElementById('error_messages').innerHTML = "Invalid City or Type of Place"
+        //alert('Invalid City or Type of Place');
     } else {
         for (var i = 0; i < theList.length; i++) {
             createMarker(theList[i]);
