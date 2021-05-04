@@ -7,11 +7,11 @@ let displayResults = [];
 
 /*Function called when map initializes.  Centers map, builds Google's PLacesServices object and applies textSearch method to it.*/
 function initMap() {
-    const lewes = new google.maps.LatLng(50.8739, 0.0088);
+    const world = new google.maps.LatLng(0.1768696, 37.9083264);
     infowindow = new google.maps.InfoWindow();
     map = new google.maps.Map(document.getElementById("map"), {
-        center: lewes,
-        zoom: 8,
+        center: world,
+        zoom: 2,
     });
 }
 
@@ -52,7 +52,8 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
     }
 
     function createTextSearchRequest(coords, typeOfPlace) {
-        console.log(coords);
+        map.setCenter(coords);
+        map.setZoom(10)
         const request = {
             query: typeOfPlace,
             location: coords,
@@ -188,4 +189,5 @@ function createMarker(input, i) {
         );
         infowindow.open(map, this);
     })
+
 }
