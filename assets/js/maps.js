@@ -55,7 +55,7 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
         const request = {
             query: typeOfPlace,
             location: coords,
-            radius: 10000,
+            radius: 2500,
         };
         service = new google.maps.places.PlacesService(map);
         service.textSearch(request, callback);
@@ -145,8 +145,9 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     console.log(mostReviewsList);
     var theList = mostReviewsList.concat(temporaryList);
     console.log(theList);
+    document.getElementById('results').innerHTML = theList['business_status'];
     if (theList.length == 0) {
-        document.getElementById('error_messages').innerHTML = "Invalid City or Type of Place"
+        document.getElementById('error_messages').innerHTML = "Invalid City or Type of Place";
         //alert('Invalid City or Type of Place');
     } else {
         for (var i = 0; i < theList.length; i++) {
