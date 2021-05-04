@@ -2,6 +2,7 @@ let map;
 let service;
 let infowindow;
 let allResults = [];
+let displayResults = [];
 
 
 /*Function called when map initializes.  Centers map, builds Google's PLacesServices object and applies textSearch method to it.*/
@@ -145,22 +146,37 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     console.log(mostReviewsList);
     var theList = mostReviewsList.concat(temporaryList);
     console.log(theList);
-    document.getElementById('results').innerHTML = theList['business_status'];
     if (theList.length == 0) {
         document.getElementById('error_messages').innerHTML = "Invalid City or Type of Place";
         //alert('Invalid City or Type of Place');
     } else {
         for (var i = 0; i < theList.length; i++) {
-            createMarker(theList[i]);
+            createMarker(theList[i], i);
+            displayResults.push(theList[i].name);
+            displayResults.push(theList[i].formatted_address);
+            displayResults.push(theList[i].rating);
+            document.getElementById('results').innerHTML = displayResults;
         }
     }
 }
 
-function createMarker(input) {
+function createMarker(input, i) {
     const marker = new google.maps.Marker({
         map,
         position: input.geometry.location,
     });
+    if (i == 1) {
+        infowindow.setContent(
+            "<strong><div>" +
+            input.rating + "</div></strong>" +
+            input.name +
+            "<br>" +
+            input.formatted_address +
+            "</div>"
+        );
+        infowindow.open(map, marker);
+    }
+
     google.maps.event.addListener(marker, "click", function () {
         infowindow.setContent(
             "<strong><div>" +
