@@ -153,11 +153,10 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     } else {
         for (var i = 0; i < theList.length; i++) {
             createMarker(theList[i], i);
-            displayResults.push(theList[i].name);
-            displayResults.push(theList[i].formatted_address);
-            displayResults.push(theList[i].rating);
-            document.getElementById('results').innerHTML = displayResults;
+            let lit = `${theList[i].name} <br> ${theList[i].formatted_address} <br> ${theList[i].rating} <br>`;
+            displayResults.push(lit)
         }
+        document.getElementById('results').innerHTML = displayResults;
     }
 }
 

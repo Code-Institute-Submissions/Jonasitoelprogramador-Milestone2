@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-theme.min.css">
 </head>
 <header>
+    <!--The below navbar code is taken from: https://mdbootstrap.com/docs/b4/jquery/navigation/hamburger-menu/-->
     <!--Navbar-->
     <nav class="navbar navbar-light lighten-4">
 
@@ -29,6 +30,9 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
+                    <a class="nav-link" href="javascript:history.go(0)">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">About<span
                             class="sr-only">(current)</span></a>
                 </li>
@@ -40,7 +44,7 @@
 
     </nav>
     <!--/.Navbar-->
-
+    <!--This is taken from: https://getbootstrap.com/docs/4.0/components/modal/-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -52,7 +56,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <p>Paragraph on what the whole thhing is about yeah</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
