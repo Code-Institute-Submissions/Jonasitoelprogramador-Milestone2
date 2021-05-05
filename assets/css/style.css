@@ -41,3 +41,11 @@
 .main-font {
     font-family: 'Courier New', Courier, monospace;
 }
+
+#border {
+    border-style: groove;
+}
+
+.results-div h3 {
+    text-align: center;
+}
