@@ -1,6 +1,13 @@
+.no-padding {
+    padding: 0px !important;
+}
+
 #map {
     width: 100%;
-    min-height: 400px;
+    height: 550px;
+    border: 10px solid #94bcccce;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
 }
 
 /*This is taken from W3Schools website https://www.w3schools.com/howto/howto_css_loader.asp*/
@@ -48,4 +55,69 @@
 
 .results-div h3 {
     text-align: center;
+}
+
+/*This code is taken from: https://www.w3docs.com/snippets/css/how-to-style-buttons-with-css.html*/
+.button-style {
+    display: inline-block;
+    background-color: #7b38d8;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 17px;
+    padding: 12px;
+    width: 200px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button-style:hover {
+    background-color: green;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+#header-styles {
+    margin-bottom: 60px;
+}
+
+.middle-column-format {
+    padding-top: 15px;
+    border-top: 10px solid #94bcccce;
+    border-bottom: 10px solid #94bcccce;
+    border-right: 5px solid #94bcccce;
+}
+
+.final-column-format {
+    padding-top: 15px;
+    border-top: 10px solid #94bcccce;
+    border-bottom: 10px solid #94bcccce;
+    border-right: 10px solid #94bcccce;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-left: 5px solid #94bcccce;
+}
+
+.footer-styling {
+    height: 200px;
+    background-color: #7b38d8;
+}
+
+/*This is taken from: https://stackoverflow.com/questions/5670879/css-html-create-a-glowing-border-around-an-input-field*/
+.glowing-border {
+    border: 2px solid #dadada;
+    border-radius: 7px;
+}
+
+.glowing-border:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
 }

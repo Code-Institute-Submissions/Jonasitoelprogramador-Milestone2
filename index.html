@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-theme.min.css">
 </head>
-<header>
+<header id="header-styles">
     <!--The below navbar code is taken from: https://mdbootstrap.com/docs/b4/jquery/navigation/hamburger-menu/-->
     <!--Navbar-->
     <nav class="navbar navbar-light lighten-4">
@@ -79,32 +79,39 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 no-padding">
                 <div id="map"></div>
             </div>
-            <div class="col-md-3">
-                <form id="my-form">
+            <div class="col-md-3 middle-column-format">
+                <div>
+                    <h3 class="main-font text-align-center">Search for your top 5!</h3>
+                </div>
+                <form id="my-form" class="text-align-center">
+                    <br>
                     <div class="city">
-                        <label for="city">City:</label>
-                        <input type="text" id="city" name="city">
+                        <label for="city" class="main-font"><strong>City:</strong></label>
+                        <input type="text" id="city" name="city" class="glowing-border">
                     </div>
+                    <br>
                     <div class="type_of_place">
-                        <label for="type_of_place">Type of Place:</label>
-                        <input type="text" id="type_of_place" name="type_of_place">
+                        <label for="type_of_place" class="main-font"><strong>Type of Place:</strong></label>
+                        <input type="text" id="type_of_place" name="type_of_place" class="glowing-border">
                     </div>
                     <div id="loader">
                     </div>
+                    <br><br>
                     <div>
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value="Submit" class="button-style main-font" />
+                    </div>
+                    <button class="button-style main-font" onClick="window.location.href=window.location.href">Refresh
+                        Markers</button>
+                    <div>
+                        <p id="error_messages">
+                        </p>
                     </div>
                 </form>
-                <button onClick="window.location.href=window.location.href">Refresh Markers</button>
-                <div>
-                    <p id="error_messages">
-                    </p>
-                </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 final-column-format">
                 <div class="results-div">
                     <h3 class="main-font">The Top 5</h3>
                     <div id="no-border">
@@ -128,5 +135,8 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 </body>
+<footer class="footer-styling">
+
+</footer>
 
 </html>

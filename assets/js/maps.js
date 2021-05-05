@@ -159,7 +159,7 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     } else {
         for (var i = 4; i > -1; i = i - 1) {
             createMarker(theList[i], i);
-            let lit = `<em><strong>${-i + 5}. ${theList[i].name}</strong></em> <br> ${theList[i].rating} <br> ${theList[i].formatted_address} <br>`;
+            let lit = `<em><strong>${-i + 5}. ${theList[i].name}</em> | <em>${theList[i].rating}</strong></em> <br>${theList[i].formatted_address}<br>`;
             string = string + lit;
         }
         document.getElementById('no-border').id = "border";
