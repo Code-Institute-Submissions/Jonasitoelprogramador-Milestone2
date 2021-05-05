@@ -3,6 +3,7 @@ let service;
 let infowindow;
 let allResults = [];
 let displayResults = [];
+let string = "";
 
 
 /*Function called when map initializes.  Centers map, builds Google's PLacesServices object and applies textSearch method to it.*/
@@ -151,12 +152,12 @@ function createFinalList(sameRatingList, fiveBest, counter) {
         document.getElementById('error_messages').innerHTML = "Invalid City or Type of Place";
         //alert('Invalid City or Type of Place');
     } else {
-        for (var i = 0; i < theList.length; i++) {
+        for (var i = 4; i > -1; i = i - 1) {
             createMarker(theList[i], i);
-            let lit = `${theList[i].name} <br> ${theList[i].formatted_address} <br> ${theList[i].rating} <br>`;
-            displayResults.push(lit)
+            let lit = `<em><strong>${-i + 5}. ${theList[i].name}</strong></em> <br> ${theList[i].rating} <br> ${theList[i].formatted_address} <br>`;
+            string = string + lit;
         }
-        document.getElementById('results').innerHTML = displayResults;
+        document.getElementById('results').innerHTML = string;
     }
 }
 

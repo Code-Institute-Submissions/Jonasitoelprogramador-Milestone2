@@ -38,10 +38,6 @@
     width: 80%;
 }
 
-#results-div {
-    height: 100%;
-}
-
-#results-div p {
-    height: 100%;
+.main-font {
+    font-family: 'Courier New', Courier, monospace;
 }
