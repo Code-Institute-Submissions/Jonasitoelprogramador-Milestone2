@@ -24,10 +24,6 @@ function takeCityInput() {
         e.preventDefault();
         document.getElementById('error_messages').innerHTML = ""
         document.getElementById('loader').className = "loader";
-        if (document.getElementById('border')) {
-            document.getElementById('border').id = "no-border"
-        } else {};
-        string = "";
         document.getElementById('results').innerHTML = "";
         cityIntput = document.getElementById('my-form').elements['city'].value;
         typeOfPlaceInput = document.getElementById('my-form').elements['type_of_place'].value;
@@ -162,7 +158,6 @@ function createFinalList(sameRatingList, fiveBest, counter) {
             let lit = `<em><strong>${-i + 5}. ${theList[i].name}</em> | <em>${theList[i].rating}</strong></em> <br>${theList[i].formatted_address}<br>`;
             string = string + lit;
         }
-        document.getElementById('no-border').id = "border";
         document.getElementById('results').innerHTML = string;
     }
 }
