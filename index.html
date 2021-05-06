@@ -91,7 +91,7 @@
                 <form id="my-form" class="text-align-center">
                     <br>
                     <div class="city">
-                        <label for="city" class="main-font"><strong>City:</strong></label>
+                        <label for="city" class="main-font"><strong>City:</strong></label><br>
                         <input type="text" id="city" name="city" class="glowing-border">
                     </div>
                     <br>
@@ -99,13 +99,12 @@
                         <label for="type_of_place" class="main-font"><strong>Type of Place:</strong></label>
                         <input type="text" id="type_of_place" name="type_of_place" class="glowing-border">
                     </div>
-                    <div id="loader">
-                    </div>
                     <br><br>
                     <div>
-                        <input type="submit" value="Submit" class="button-style main-font" />
+                        <input type="submit" value="Submit" class="submit-button-style main-font" />
                     </div>
-                    <button class="button-style main-font" onClick="window.location.href=window.location.href">Refresh
+                    <button class="refresh-button-style main-font"
+                        onClick="window.location.href=window.location.href">Refresh
                         Markers</button>
                     <div>
                         <p id="error_messages">
@@ -113,7 +112,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-3 final-column-format">
+            <div class="col-md-3 final-column-format" id="loader">
                 <div class="results-div">
                     <h3 class="main-font">The Top 5</h3>
                     <div>

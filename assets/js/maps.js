@@ -23,8 +23,9 @@ function takeCityInput() {
     document.getElementById('my-form').addEventListener("submit", function (e) {
         e.preventDefault();
         document.getElementById('error_messages').innerHTML = ""
-        document.getElementById('loader').className = "loader";
-        document.getElementById('results').innerHTML = "";
+        string = "";
+        document.getElementById("loader").className = "col-md-3 final-column-format loading-screen dot-flashing";
+        document.getElementById('results').innerHTML = `Wait<br>for<br>it<br>...`;
         cityIntput = document.getElementById('my-form').elements['city'].value;
         typeOfPlaceInput = document.getElementById('my-form').elements['type_of_place'].value;
         nameToCoord(cityIntput, typeOfPlaceInput);
@@ -79,7 +80,7 @@ function callback(results, status, pagination) {
         pagination.nextPage();
     } else {
         createReliablePlaces(allResults);
-        document.getElementById('loader').className = "";
+        document.getElementById("loader").className = "col-md-3 final-column-format";
         allResults = [];
     }
 }

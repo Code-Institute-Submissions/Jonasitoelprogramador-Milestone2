@@ -7,20 +7,14 @@
 #map {
     width: 100%;
     height: 550px;
-    border: 10px solid #94bcccce;
+    border-top: 10px solid #94bcccce;
+    border-left: 10px solid #94bcccce;
+    border-bottom: 10px solid #94bcccce;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
 
 /*This is taken from W3Schools website https://www.w3schools.com/howto/howto_css_loader.asp*/
-.loader {
-    border: 10px solid #f3f3f3;
-    border-top: 10px solid #3498db;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 2s linear infinite;
-}
 
 @keyframes spin {
     0% {
@@ -62,10 +56,11 @@
 
 .results-div h3 {
     text-align: center;
+
 }
 
 /*This code is taken from: https://www.w3docs.com/snippets/css/how-to-style-buttons-with-css.html*/
-.button-style {
+.submit-button-style {
     display: inline-block;
     background-color: #9c94cc;
     border-radius: 10px;
@@ -83,8 +78,30 @@
     margin: 5px;
 }
 
-.button-style:hover {
+.submit-button-style:hover {
+    background-color: #94bcccce;
+}
+
+.refresh-button-style {
+    display: inline-block;
     background-color: #94cca4;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 17px;
+    padding: 12px;
+    width: 150px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.refresh-button-style:hover {
+    background-color: #94bcccce;
 }
 
 .text-align-center {
@@ -101,14 +118,15 @@
 }
 
 .middle-column-format {
-    padding-top: 15px;
+    padding-top: 30px;
     border-top: 10px solid #94bcccce;
     border-bottom: 10px solid #94bcccce;
     border-right: 5px solid #94bcccce;
+    border-left: 10px solid #94bcccce;
 }
 
 .final-column-format {
-    padding-top: 15px;
+    padding-top: 30px;
     border-top: 10px solid #94bcccce;
     border-bottom: 10px solid #94bcccce;
     border-right: 10px solid #94bcccce;
@@ -163,4 +181,11 @@
 
 p {
     margin-bottom: 0px !important;
+}
+
+.loading-screen {
+    background-color: #9ecaed;
+    line-height: 100px;
+    text-align: center;
+    font-size: 100px;
 }
