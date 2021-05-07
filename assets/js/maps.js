@@ -22,10 +22,11 @@ window.addEventListener("load", takeCityInput);
 function takeCityInput() {
     document.getElementById('my-form').addEventListener("submit", function (e) {
         e.preventDefault();
-        document.getElementById('error_messages').innerHTML = ""
+        document.getElementById('error_messages').innerHTML = "";
         string = "";
-        document.getElementById("loader").className = "col-md-3 final-column-format loading-screen dot-flashing";
-        document.getElementById('results').innerHTML = `Wait<br>for<br>it<br>...`;
+        document.getElementById('results').innerHTML = "";
+        document.getElementById("loader").className = "col-md-3 final-column-format loading-screen";
+        document.getElementById("circle").className = "lds-circle";
         cityIntput = document.getElementById('my-form').elements['city'].value;
         typeOfPlaceInput = document.getElementById('my-form').elements['type_of_place'].value;
         nameToCoord(cityIntput, typeOfPlaceInput);
@@ -81,6 +82,7 @@ function callback(results, status, pagination) {
     } else {
         createReliablePlaces(allResults);
         document.getElementById("loader").className = "col-md-3 final-column-format";
+        document.getElementById("circle").className = "";
         allResults = [];
     }
 }
@@ -160,6 +162,14 @@ function createFinalList(sameRatingList, fiveBest, counter) {
             string = string + lit;
         }
         document.getElementById('results').innerHTML = string;
+        let mapp = document.getElementById('map');
+        let mappStyles = getComputedStyle(mapp);
+        let mappHeight = mappStyles.getPropertyValue('min-height');
+        console.log(mappHeight);
+        let finalColumn = document.getElementById('final-column-format');
+        let finalColumnStyles = getComputedStyle(finalColumn);
+        let finalColumnHeight = finalColumnStyles.getPropertyValue('height')
+        console.log(finalColumnHeight);
     }
 }
 
