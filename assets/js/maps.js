@@ -22,6 +22,7 @@ window.addEventListener("load", takeCityInput);
 function takeCityInput() {
     document.getElementById('my-form').addEventListener("submit", function (e) {
         e.preventDefault();
+        document.getElementById('scroll').className = "";
         document.getElementById('error_messages').innerHTML = "";
         string = "";
         document.getElementById('results').innerHTML = "";
@@ -162,6 +163,7 @@ function createFinalList(sameRatingList, fiveBest, counter) {
             string = string + lit;
         }
         document.getElementById('results').innerHTML = string;
+        document.getElementById('scroll').className = "scroll main-font max-height-459"
     }
 }
 
