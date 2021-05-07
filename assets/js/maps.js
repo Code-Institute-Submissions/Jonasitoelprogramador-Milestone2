@@ -162,14 +162,6 @@ function createFinalList(sameRatingList, fiveBest, counter) {
             string = string + lit;
         }
         document.getElementById('results').innerHTML = string;
-        let mapp = document.getElementById('map');
-        let mappStyles = getComputedStyle(mapp);
-        let mappHeight = mappStyles.getPropertyValue('min-height');
-        console.log(mappHeight);
-        let finalColumn = document.getElementById('final-column-format');
-        let finalColumnStyles = getComputedStyle(finalColumn);
-        let finalColumnHeight = finalColumnStyles.getPropertyValue('height')
-        console.log(finalColumnHeight);
     }
 }
 

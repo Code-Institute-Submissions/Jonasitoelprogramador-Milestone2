@@ -111,6 +111,7 @@
     border-bottom: 10px solid #94bcccce;
     border-right: 5px solid #94bcccce;
     border-left: 10px solid #94bcccce;
+    height: 550px;
 }
 
 .final-column-format {
@@ -121,6 +122,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-left: 5px solid #94bcccce;
+    height: 550px;
 }
 
 .footer-styling {
@@ -214,4 +216,20 @@ p {
     100% {
         transform: rotateY(3600deg);
     }
+}
+
+.scroll {
+    overflow: scroll;
+}
+
+.max-height-550 {
+    height: 550px;
+}
+
+.max-height-469 {
+    height: 469px;
+}
+
+.max-height-517 {
+    height: 517px;
 }
