@@ -176,6 +176,20 @@
     padding-top: 15px;
 }
 
+.footer-text-style {
+    color: whitesmoke;
+}
+
+.here-style {
+    color: #9ecaed;
+    text-decoration: none;
+}
+
+.here-style:hover {
+    color: #94cca4;
+    text-decoration: none;
+}
+
 .line-height-185 {
     line-height: 120px;
 }
