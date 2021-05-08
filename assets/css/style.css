@@ -19,6 +19,21 @@
     width: 45%;
 }
 
+.city-search-div-center {
+    margin: auto;
+    width: 45%;
+}
+
+.city-search-h1-center {
+    margin: auto;
+    width: 45%;
+}
+
+.the-best-div-center {
+    margin: auto;
+    width: 45%;
+}
+
 .centre-90 {
     margin: auto;
     width: 90%;
@@ -133,7 +148,6 @@
 
 .footer-styling {
     height: 200px;
-    background-color: #9c94cc;
 }
 
 /*This is taken from: https://stackoverflow.com/questions/5670879/css-html-create-a-glowing-border-around-an-input-field*/
@@ -174,6 +188,7 @@
 
 .footer-columns-format {
     padding-top: 15px;
+    background-color: #9c94cc;
 }
 
 .footer-text-style {
@@ -289,10 +304,17 @@ p {
     background-color: #9c94cc;
 }
 
-.close-style {
+.about-style {
     font-family: 'Abril Fatface', cursive;
     font-weight: 700;
     color: whitesmoke;
+}
+
+.btn-secondary {
+    font-family: 'Abril Fatface', cursive;
+    font-weight: 700;
+    color: whitesmoke;
+    background-color: #9c94cc !important;
 }
 
 .main-title-div-style {
@@ -302,4 +324,104 @@ p {
 
 .padding-left-25 {
     padding-left: 70px;
+}
+
+@media only screen and (max-width: 1310px) {
+    .centre-90 {
+        margin: auto;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1173px) {
+    .the-best-div-center {
+        margin: auto;
+        width: 50%;
+    }
+
+    .padding-left-25 {
+        padding-left: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 1173px) {
+    .city-search-h1-center {
+        margin: auto;
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 1042px) {
+    .the-best-div-center {
+        margin: auto;
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 948px) {
+    .the-best-div-center {
+        margin: auto;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 870px) {
+    .the-best-div-center {
+        margin: auto;
+        width: 65%;
+    }
+
+    .city-search-h1-center {
+        margin: auto;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 802px) {
+    .the-best-div-center {
+        margin: auto;
+        width: 70%;
+    }
+
+    .city-search-h1-center {
+        margin: auto;
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 746px) {
+    .the-best-div-center {
+        margin: auto;
+        width: 75%;
+    }
+
+    .city-search-h1-center {
+        margin: auto;
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 695px) {
+    .the-best-div-center {
+        margin: auto;
+        width: 80%;
+    }
+
+    .city-search-h1-center {
+        margin: auto;
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 652px) {
+    .the-best-div-center {
+        margin: auto;
+        width: 90%;
+    }
+
+    .city-search-h1-center {
+        margin: auto;
+        width: 85%;
+    }
 }
