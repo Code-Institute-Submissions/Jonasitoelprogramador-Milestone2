@@ -48,7 +48,7 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
                 console.log(jsonData);
                 if (jsonData.results.length == 0) {
                     alert('Invalid City or Type of Place');
-                    document.getElementById('loader').className = "";
+                    document.getElementById("loader").className = "col-sm-6 col-lg-3 final-column-format";
                 } else {
                     cb(jsonData.results[0].geometry, typeOfPlaceInput)
                 };
@@ -154,6 +154,7 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     var theList = mostReviewsList.concat(temporaryList);
     console.log(theList);
     if (theList.length == 0) {
+        document.getElementById("loader").className = "col-sm-6 col-lg-3 final-column-format";
         alert('Invalid City or Type of Place');
     } else {
         for (var i = 4; i > -1; i = i - 1) {
