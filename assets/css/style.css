@@ -333,7 +333,15 @@ p {
     }
 }
 
-@media only screen and (max-width: 1173px) {
+@media only screen and (max-width: 1250px) {
+    .my-buttons {
+        font-size: 15px !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 1176px) {
     .the-best-div-center {
         margin: auto;
         width: 50%;
@@ -343,19 +351,35 @@ p {
         padding-left: 20px;
     }
 
-}
+    ;
 
-@media only screen and (max-width: 1173px) {
     .city-search-h1-center {
         margin: auto;
         width: 55%;
     }
+
+    .my-buttons {
+        font-size: 12px !important;
+    }
+
 }
 
 @media only screen and (max-width: 1042px) {
     .the-best-div-center {
         margin: auto;
         width: 55%;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .my-buttons {
+        font-size: 10px !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .my-buttons {
+        font-size: 20px !important;
     }
 }
 
@@ -425,3 +449,5 @@ p {
         width: 85%;
     }
 }
+
+.my-buttons {}
