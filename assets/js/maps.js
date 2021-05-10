@@ -23,10 +23,10 @@ function takeCityInput() {
     document.getElementById('my-form').addEventListener("submit", function (e) {
         e.preventDefault();
         document.getElementById('scroll').className = "";
-        document.getElementById('error_messages').innerHTML = "";
+        /*document.getElementById('error_messages').innerHTML = "";*/
         string = "";
         document.getElementById('results').innerHTML = "";
-        document.getElementById("loader").className = "col-md-3 final-column-format loading-screen";
+        document.getElementById("loader").className = "col-sm-6 col-lg-3 final-column-format loading-screen";
         document.getElementById("circle").className = "lds-circle";
         cityIntput = document.getElementById('my-form').elements['city'].value;
         typeOfPlaceInput = document.getElementById('my-form').elements['type_of_place'].value;
@@ -47,7 +47,7 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
                 let jsonData = JSON.parse(this.responseText);
                 console.log(jsonData);
                 if (jsonData.results.length == 0) {
-                    document.getElementById('error_messages').innerHTML = "Invalid City or Type of Place";
+                    alert('Invalid City or Type of Place');
                     document.getElementById('loader').className = "";
                 } else {
                     cb(jsonData.results[0].geometry, typeOfPlaceInput)
@@ -82,7 +82,7 @@ function callback(results, status, pagination) {
         pagination.nextPage();
     } else {
         createReliablePlaces(allResults);
-        document.getElementById("loader").className = "col-md-3 final-column-format";
+        document.getElementById("loader").className = "col-sm-6 col-lg-3 final-column-format";
         document.getElementById("circle").className = "";
         allResults = [];
     }
@@ -154,8 +154,7 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     var theList = mostReviewsList.concat(temporaryList);
     console.log(theList);
     if (theList.length == 0) {
-        document.getElementById('error_messages').innerHTML = "Invalid City or Type of Place";
-        //alert('Invalid City or Type of Place');
+        alert('Invalid City or Type of Place');
     } else {
         for (var i = 4; i > -1; i = i - 1) {
             createMarker(theList[i], i);

@@ -97,7 +97,7 @@
             </div>
             <div class="col-sm-6 col-lg-3 middle-column-format">
                 <div>
-                    <h3 class="main-font text-align-center">Search for your top 5!</h3>
+                    <h3 class="main-font text-align-center column-titles"><strong>Search for your top 5!</strong></h3>
                 </div>
                 <!--<form id="my-form" class="text-align-center">
                     <br>
@@ -122,24 +122,27 @@
                         </p>
                     </div>
                 </form>-->
-                <form>
+                <form id="my-form">
                     <div class="form-group">
-                        <label for="city" class="main-font"><strong>City</strong></label>
+                        <label for="city" class="main-font column-titles"><strong>City</strong></label>
                         <input type="text" class="form-control" id="city" aria-describedby="emailHelp"
                             placeholder="City">
                     </div>
                     <div class="form-group">
-                        <label for="type_of_place" class="main-font"><strong>Type of Place</strong></label>
+                        <label for="type_of_place" class="main-font column-titles"><strong>Type of
+                                Place</strong></label>
                         <input type="text" class="form-control" id="type_of_place" placeholder="Type of Place"
                             name="type_of_place">
                     </div>
-                    <span><button type="submit" class="btn btn-primary main-font my-buttons">Submit</button></span>
-                    <span><button class="btn btn-primary main-font my-buttons">Refresh Markers</button></span>
+                    <span><button type="submit" value="Submit"
+                            class="btn btn-primary main-font my-buttons">Submit</button></span>
+                    <span><button class="btn btn-primary main-font my-buttons" onClick="
+                            window.location.href=window.location.href">Refresh Markers</button></span>
                 </form>
             </div>
             <div class="col-sm-6 col-lg-3 final-column-format" id="loader">
                 <div class="results-div max-height-517">
-                    <h3 class="main-font">The Top 5</h3><br>
+                    <h3 class="main-font column-titles"><strong>The Top 5</strong></h3><br>
                     <div id="circle">
                         <div></div>
                     </div>
