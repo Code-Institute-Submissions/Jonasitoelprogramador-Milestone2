@@ -363,7 +363,7 @@ p {
     }
 }
 
-@media only screen and (max-width: 1042px) {
+@media only screen and (max-width: 1057px) {
     .the-best-div-center {
         margin: auto;
         width: 55%;
@@ -376,7 +376,7 @@ p {
     }
 }
 
-@media only screen and (max-width: 948px) {
+@media only screen and (max-width: 963px) {
     .the-best-div-center {
         margin: auto;
         width: 60%;
@@ -407,7 +407,7 @@ p {
     }
 }
 
-@media only screen and (max-width: 746px) {
+@media only screen and (max-width: 761px) {
     .the-best-div-center {
         margin: auto;
         width: 75%;
@@ -419,7 +419,7 @@ p {
     }
 }
 
-@media only screen and (max-width: 695px) {
+@media only screen and (max-width: 710px) {
     .the-best-div-center {
         margin: auto;
         width: 80%;
@@ -431,7 +431,7 @@ p {
     }
 }
 
-@media only screen and (max-width: 652px) {
+@media only screen and (max-width: 667px) {
     .the-best-div-center {
         margin: auto;
         width: 90%;
@@ -440,6 +440,91 @@ p {
     .city-search-h1-center {
         margin: auto;
         width: 85%;
+    }
+}
+
+@media only screen and (max-width: 595px) {
+    .the-best-div-center h2 {
+        font-size: 25px !important;
+    }
+
+    .city-search-h1-center {
+        font-size: 35px !important;
+    }
+
+    .the-best-div-center {
+        margin: auto;
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 524px) {
+    .the-best-div-center {
+        margin: auto;
+        width: 85%;
+    }
+
+    .city-search-h1-center {
+        margin: auto;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 494px) {
+    .the-best-div-center h2 {
+        font-size: 22px !important;
+    }
+
+    .city-search-h1-center {
+        font-size: 32px !important;
+    }
+
+    .main-title-div-style {
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 440px) {
+    .the-best-div-center h2 {
+        font-size: 18px !important;
+    }
+
+    .city-search-h1-center {
+        font-size: 28px !important;
+        margin: auto;
+        width: 85%;
+    }
+
+    .the-best-div-center {
+        margin: auto;
+        width: 80%;
+    }
+
+}
+
+@media only screen and (max-width: 407px) {
+    .the-best-div-center h2 {
+        font-size: 16px !important;
+    }
+
+    .city-search-h1-center {
+        font-size: 26px !important;
+    }
+}
+
+@media only screen and (max-width: 381px) {
+    .city-search-h1-center {
+        margin: auto;
+        width: 90%;
+    }
+
+    .the-best-div-center {
+        margin: auto;
+        width: 85%;
+    }
+
+    .my-buttons {
+        font-size: 15px !important;
     }
 }
 
