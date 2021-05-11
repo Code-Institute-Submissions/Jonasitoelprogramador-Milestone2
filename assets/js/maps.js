@@ -156,19 +156,15 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     console.log(mostReviewsList);
     var theList = mostReviewsList.concat(temporaryList);
     console.log(theList);
-    if (theList.length == 0) {
-        document.getElementById("loader").className = "col-sm-12 col-md-6 col-lg-3 final-column-format";
-        alert('Invalid City or Type of Place');
-    } else {
-        for (var i = 4; i > -1; i = i - 1) {
-            createMarker(theList[i], i);
-            let lit = `<em><strong>${-i + 5}. ${theList[i].name}</em> | <em>${theList[i].rating}</strong></em> <br>${theList[i].formatted_address}<br>`;
-            string = string + lit;
-        }
-        document.getElementById('results').innerHTML = string;
-        document.getElementById('scroll').className = "scroll main-font max-height-459"
+    for (var i = 4; i > -1; i = i - 1) {
+        createMarker(theList[i], i);
+        let lit = `<em><strong>${-i + 5}. ${theList[i].name}</em> | <em>${theList[i].rating}</strong></em> <br>${theList[i].formatted_address}<br>`;
+        string = string + lit;
     }
+    document.getElementById('results').innerHTML = string;
+    document.getElementById('scroll').className = "scroll main-font max-height-459"
 }
+
 
 function createMarker(input, i) {
     const marker = new google.maps.Marker({
