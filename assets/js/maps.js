@@ -26,7 +26,7 @@ function takeCityInput() {
         /*document.getElementById('error_messages').innerHTML = "";*/
         string = "";
         document.getElementById('results').innerHTML = "";
-        document.getElementById("loader").className = "col-sm-6 col-lg-3 final-column-format loading-screen";
+        document.getElementById("loader").className = "col-sm-12 col-md-6 col-lg-3 final-column-format loading-screen";
         document.getElementById("circle").className = "lds-circle";
         cityIntput = document.getElementById('my-form').elements['city'].value;
         typeOfPlaceInput = document.getElementById('my-form').elements['type_of_place'].value;
@@ -48,7 +48,7 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
                 console.log(jsonData);
                 if (jsonData.results.length == 0) {
                     console.log("hello");
-                    document.getElementById("loader").className = "col-sm-6 col-lg-3 final-column-format";
+                    document.getElementById("loader").className = "col-sm-12 col-md-6 col-lg-3 final-column-format";
                     setTimeout(function () {
                         alert("Invalid City or Type of Place");
                     }, 100);
@@ -85,7 +85,7 @@ function callback(results, status, pagination) {
         pagination.nextPage();
     } else {
         createReliablePlaces(allResults);
-        document.getElementById("loader").className = "col-sm-6 col-lg-3 final-column-format";
+        document.getElementById("loader").className = "col-sm-12 col-md-6 col-lg-3 final-column-format";
         document.getElementById("circle").className = "";
         allResults = [];
     }
@@ -157,7 +157,7 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     var theList = mostReviewsList.concat(temporaryList);
     console.log(theList);
     if (theList.length == 0) {
-        document.getElementById("loader").className = "col-sm-6 col-lg-3 final-column-format";
+        document.getElementById("loader").className = "col-sm-12 col-md-6 col-lg-3 final-column-format";
         alert('Invalid City or Type of Place');
     } else {
         for (var i = 4; i > -1; i = i - 1) {
