@@ -47,8 +47,11 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
                 let jsonData = JSON.parse(this.responseText);
                 console.log(jsonData);
                 if (jsonData.results.length == 0) {
-                    alert('Invalid City or Type of Place');
+                    console.log("hello");
                     document.getElementById("loader").className = "col-sm-6 col-lg-3 final-column-format";
+                    setTimeout(function () {
+                        alert("Invalid City or Type of Place");
+                    }, 100);
                 } else {
                     cb(jsonData.results[0].geometry, typeOfPlaceInput)
                 };
