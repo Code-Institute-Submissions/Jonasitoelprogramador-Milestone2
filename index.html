@@ -42,24 +42,25 @@
                     </a>
                 </li>
             </ul>
-            <!-- Links -->
 
         </div>
-        <!-- Collapsible content -->
 
     </nav>
     <!--/.Navbar-->
     <!--This is taken from: https://getbootstrap.com/docs/4.0/components/modal/-->
+    <!--The below code stipulates the format and context of the modal box that apperas when "About" is clicked in the navbar.-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+                <!--The below div is responsible for the modal styling-->
                 <div class="modal-header modal-header-footer-style">
                     <h5 class="modal-title text-align-center about-style" id="exampleModalLabel">About</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                <!--Content of the modal-->
                 <div class="modal-body modal-body-style">
                     <p class="modal-text-style">Welcome to City Search! This brand-new application revolutionises the
                         way we find our favourite activities and places whithin a city. Simply type in your city and the
@@ -76,9 +77,11 @@
     </div>
 
     <div class="main-title-div-style">
+        <!--Main title of the web app-->
         <div class="city-search-div-center">
             <h1 class="city-search-h1-center title-font">City Search</h1>
         </div>
+        <!--Subtitle of the main title of the web app-->
         <div class="the-best-div-center">
             <h2 class="title-font centre-90">The <em>best</em> way to find the <em>best</em> places!</h2>
         </div>
@@ -86,26 +89,32 @@
 </header>
 
 <body>
+    <!--The below body HTML makes use of 3 bootrap columns-->
     <div class="container-fluid">
         <div class="row">
+            <!--Leftmost column that contains the map-->
             <div class="col-sm-12 col-lg-6 no-padding">
-                <div id="map"></div>
+                <div id="map" aria-label="interactive map element displaying the location of the returned results">
+                </div>
             </div>
+            <!--Middle column containing the form for city and type of place input-->
             <div class="col-sm-12 col-md-6 col-lg-3 middle-column-format">
+                <!--Column title-->
                 <div>
                     <h3 class="main-font text-align-center column-titles"><strong>Search for your top 5!</strong></h3>
                 </div>
+                <!--Form section including two buttons and two inputs-->
                 <form id="my-form">
                     <div class="form-group">
-                        <label for="city" class="main-font labels"><strong>City</strong></label>
-                        <input type="text" class="form-control" id="city" aria-describedby="emailHelp"
-                            placeholder="City" required>
+                        <label id="city" for="city" class="main-font labels"><strong>City</strong></label>
+                        <input type="text" class="form-control" id="city" aria-labelledby="city" placeholder="City"
+                            required>
                     </div>
                     <div class="form-group">
-                        <label for="type_of_place" class="main-font labels"><strong>Type of
+                        <label id="type-of-place-label" for="type_of_place" class="main-font labels"><strong>Type of
                                 Place</strong></label>
                         <input type="text" class="form-control" id="type_of_place" placeholder="Type of Place"
-                            name="type_of_place" required>
+                            name="type_of_place" aria-labelledby="type-of-place-label" required>
                     </div>
                     <span><button type="submit" value="Submit"
                             class="btn btn-primary main-font my-buttons">Submit</button></span>
@@ -113,12 +122,14 @@
                             window.location.href=window.location.href">Refresh Markers</button></span>
                 </form>
             </div>
+            <!--Rightmost column where results of the search are displayed.  The "loader" id in this part is used to identify this element in the javascript code in order to be able to make changes to the HTML-->
             <div class="col-sm-12 col-md-6 col-lg-3 final-column-format" id="loader">
                 <div class="results-div max-height-517">
                     <h3 class="main-font column-titles"><strong>The Top 5</strong></h3><br>
                     <div id="circle">
                         <div></div>
                     </div>
+                    <!---Div in which the results of the search are displayed-->
                     <div id="scroll" class="main-font max-height-459">
                         <p id="results" class="max-height-459"></p>
                     </div>
@@ -127,6 +138,7 @@
         </div>
     </div>
     </div>
+    <!--Imported scripts required to be able to use the Google Maps JS API-->
     <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoDw6GaX-GKeW9C2APijHBoNM8-z48Zyw&libraries=places&callback=initMap">
     </script>
@@ -136,13 +148,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
+    <!--Bootstrap cdn allowing use of bootstrap functionality-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 </body>
 <footer class="footer-styling">
+    <!--The below footer HTML makes use of 3 bootrap columns-->
     <div class="container-fluid height-100">
         <div class="row height-100">
+            <!--Leftmost Bootrap column containing copyright text-->
             <div class="col-sm-12 col-md-6 col-lg-4 footer-columns-format">
                 <div class="main-font padding-left-25">
                     <h4 class="text-align-center footer-text-style">Copyright</h4>
@@ -152,29 +167,37 @@
                         copy this content without prior consent with be met with legal action.</p>
                 </div>
             </div>
+            <!--Middle Bootrap column containing contact information and email link-->
             <div class="col-sm-12 col-md-6 col-lg-4 footer-columns-format">
                 <div class="main-font padding-left-25">
                     <h4 class="text-align-center footer-text-style">Contact</h4>
                     <p class="footer-text-style">If you wish to contact Jonasitoelprogramdor in order to suggest
                         improvements to this web app or
                         for
-                        collaboration purposes, please email him <a href="mailto:Jonasitoelprogramdor@journeyman.com"
-                            target="_blank" rel="noopener noreferrer" class="here-style">here</a>.</p>
+                        collaboration purposes, please email him
+                        <!--email link--><a href="mailto:Jonasitoelprogramdor@journeyman.com" target="_blank"
+                            rel="noopener noreferrer" class="here-style"
+                            aria-label="opens email platform with email addressed to Jonasitoelprogramdor@journeyman.com">here</a>.
+                    </p>
                 </div>
             </div>
+            <!--Rightmost html containing social media links-->
             <div class="col-sm-12 col-lg-4 footer-columns-format line-height-185">
                 <div class="main-font">
                     <h4 class="text-align-center footer-text-style">Media</h4>
                     <div class="text-align-center">
                         <ul class="media-links no-padding">
                             <li class="inline-block"><a href="https://www.facebook.com" target="_blank"><i
-                                        class="fab fa-facebook-square"></i></a></li>
+                                        class="fab fa-facebook-square" aria-label="opens new tab to facebook"></i></a>
+                            </li>
                             <li class="inline-block"><a href="https://www.instagram.com" target="_blank"><i
-                                        class="fab fa-instagram"></i></a></li>
+                                        class="fab fa-instagram" aria-label="opens new tab to instagram"></i></a></li>
                             <li class="inline-block"><a href="https://www.twitter.com" target="_blank"><i
-                                        class="fab fa-twitter-square"></i></a></li>
+                                        class="fab fa-twitter-square" aria-label="opens new tab to twitter"></i></a>
+                            </li>
                             <li class="inline-block"><a href="https://www.youtube.com" target="_blank"><i
-                                        class="fab fa-youtube-square"></i></a></li>
+                                        class="fab fa-youtube-square" aria-label="opens new tab to youtube"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
