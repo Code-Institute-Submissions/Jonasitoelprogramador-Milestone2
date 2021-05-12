@@ -1,7 +1,81 @@
 /*Imported Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
+/*All purpose CSS code*/
+.no-padding {
+    padding: 0px !important;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.column-titles {
+    color: #9c94cc;
+    font-size: 25px;
+}
+
+.main-font {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    margin-bottom: 0px !important;
+}
+
 /*CSS used in the header section*/
+
+/*Main-title-div-style is taken from: https://stackoverflow.com/questions/5670879/css-html-create-a-glowing-border-around-an-input-field*/
+
+.main-title-div-style {
+    height: 140px;
+    padding-top: 40px;
+}
+
+.navbar-style {
+    background-color: #94bcccce;
+}
+
+.nav-style {
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.centre-90 {
+    margin: auto;
+    width: 90%;
+}
+
+.city-search-div-center {
+    margin: auto;
+    width: 45%;
+}
+
+.city-search-h1-center {
+    margin: auto;
+    width: 45%;
+}
+
+.the-best-div-center {
+    margin: auto;
+    width: 45%;
+}
+
+.title-font {
+    font-family: 'Abril Fatface', cursive;
+    color: whitesmoke;
+}
+
+#header-styles {
+    padding-bottom: 30px;
+    background-color: #9c94cc;
+}
 
 /*CSS used in Bootstrap Modal*/
 .modal-text-style {
@@ -32,9 +106,8 @@
     background-color: #9c94cc !important;
 }
 
-.no-padding {
-    padding: 0px !important;
-}
+/*CSS used in the main body section split into map column, middle column and final column*/
+/*Map column CSS code*/
 
 #map {
     width: 100%;
@@ -46,115 +119,7 @@
     border-top-left-radius: 5px;
 }
 
-.centre-50 {
-    margin: auto;
-    width: 45%;
-}
-
-.city-search-div-center {
-    margin: auto;
-    width: 45%;
-}
-
-.city-search-h1-center {
-    margin: auto;
-    width: 45%;
-}
-
-.the-best-div-center {
-    margin: auto;
-    width: 45%;
-}
-
-.centre-90 {
-    margin: auto;
-    width: 90%;
-}
-
-.centre-100 {
-    margin: auto;
-    width: 100%;
-}
-
-.centre-80 {
-    margin: auto;
-    width: 80%;
-}
-
-.main-font {
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.title-font {
-    font-family: 'Abril Fatface', cursive;
-    color: whitesmoke;
-}
-
-#border {
-    border-style: groove;
-}
-
-.results-div h3 {
-    text-align: center;
-
-}
-
-/*This code is taken from: https://www.w3docs.com/snippets/css/how-to-style-buttons-with-css.html*/
-.submit-button-style {
-    display: inline-block;
-    background-color: #9c94cc;
-    border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
-    text-align: center;
-    font-size: 17px;
-    padding: 12px;
-    width: 200px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.submit-button-style:hover {
-    background-color: #94bcccce;
-}
-
-.refresh-button-style {
-    display: inline-block;
-    background-color: #94cca4;
-    border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
-    font-size: 17px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.refresh-button-style:hover {
-    background-color: #94bcccce;
-}
-
-/*End of borowed code*/
-
-.text-align-center {
-    text-align: center;
-}
-
-.text-align-right {
-    text-align: right;
-}
-
-#header-styles {
-    padding-bottom: 30px;
-    background-color: #9c94cc;
-}
+/*Middle column CSS code*/
 
 .middle-column-format {
     padding-top: 30px;
@@ -164,6 +129,21 @@
     border-left: 10px solid #94bcccce;
     height: 380px;
 }
+
+.labels {
+    color: #9c94cc;
+}
+
+.my-buttons {
+    background-color: #94cca4 !important;
+    border: 4px double #cccccc !important;
+}
+
+.my-buttons:hover {
+    background-color: #94bcccce !important;
+}
+
+/*Final column CSS code*/
 
 .final-column-format {
     padding-top: 30px;
@@ -177,100 +157,12 @@
     padding-right: 0px !important;
 }
 
-.footer-styling {
-    height: 200px;
-}
-
-/*This is taken from: https://stackoverflow.com/questions/5670879/css-html-create-a-glowing-border-around-an-input-field*/
-.glowing-border {
-    border: 2px solid #dadada;
-    border-radius: 7px;
-}
-
-.glowing-border:focus {
-    outline: none;
-    border-color: #9ecaed;
-    box-shadow: 0 0 10px #9ecaed;
-}
-
-.media-links {
+.results-div h3 {
     text-align: center;
-    font-size: 50px;
-    line-height: 20px;
-    padding-right: 40px;
-    color: white;
-    margin-bottom: 0;
-    display: inline-block;
-    list-style-type: none;
 }
 
-.inline-block {
-    display: inline-block;
-}
-
-.inline-block a {
-    color: #9ecaed;
-}
-
-.inline-block a:hover {
-    text-decoration: none;
-    color: whitesmoke;
-}
-
-.footer-columns-format {
-    padding-top: 15px;
-    background-color: #9c94cc;
-}
-
-.footer-text-style {
-    color: whitesmoke;
-}
-
-.here-style {
-    color: #9ecaed;
-    text-decoration: none;
-}
-
-.here-style:hover {
-    color: #94cca4;
-    text-decoration: none;
-}
-
-.line-height-185 {
-    line-height: 120px;
-}
-
-.height-100 {
-    height: 100%;
-}
-
-p {
-    margin-bottom: 0px !important;
-}
-
-.loading-screen {
-    background-color: #94bcccce;
-    line-height: 100px;
-    text-align: center;
-    font-size: 100px;
-}
-
-.my-buttons {
-    background-color: #94cca4 !important;
-    border: 4px double #cccccc !important;
-}
-
-.my-buttons:hover {
-    background-color: #94bcccce !important;
-}
-
-.column-titles {
-    color: #9c94cc;
-    font-size: 25px;
-}
-
-.labels {
-    color: #9c94cc;
+.max-height-517 {
+    height: 517px;
 }
 
 /*This code was taken from: https://loading.io/css/*/
@@ -310,40 +202,82 @@ p {
     }
 }
 
+/*End of borrowed code*/
+
 .scroll {
     overflow: auto;
-}
-
-.max-height-550 {
-    height: 550px;
 }
 
 .max-height-459 {
     height: 265px;
 }
 
-.max-height-517 {
-    height: 517px;
-}
-
-.navbar-style {
+.loading-screen {
     background-color: #94bcccce;
+    line-height: 100px;
+    text-align: center;
+    font-size: 100px;
 }
 
-.nav-style {
+/*CSS code for footer*/
+
+.footer-styling {
+    height: 200px;
+}
+
+.height-100 {
+    height: 100%;
+}
+
+.footer-columns-format {
+    padding-top: 15px;
+    background-color: #9c94cc;
+}
+
+.footer-text-style {
     color: whitesmoke;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 700;
-    font-size: 25px;
-}
-
-.main-title-div-style {
-    height: 140px;
-    padding-top: 40px;
 }
 
 .padding-left-25 {
     padding-left: 70px;
+}
+
+.line-height-185 {
+    line-height: 120px;
+}
+
+.media-links {
+    text-align: center;
+    font-size: 50px;
+    line-height: 20px;
+    padding-right: 40px;
+    color: white;
+    margin-bottom: 0;
+    display: inline-block;
+    list-style-type: none;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline-block a {
+    color: #9ecaed;
+}
+
+.inline-block a:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.here-style {
+    color: #9ecaed;
+    text-decoration: none;
+}
+
+.here-style:hover {
+    color: #94cca4;
+    text-decoration: none;
 }
 
 /*Media Queries - these are orgnaised from highest to lowest in terms of max-width*/

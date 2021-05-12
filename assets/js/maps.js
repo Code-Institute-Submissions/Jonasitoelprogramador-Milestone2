@@ -16,14 +16,15 @@ function initMap() {
     });
 }
 
-/*Taken from stack overflow https://stackoverflow.com/questions/5384712/intercept-a-form-submit-in-javascript-and-prevent-normal-submission*/
 window.addEventListener("load", takeCityInput);
 
+/*Taken from stack overflow https://stackoverflow.com/questions/5384712/intercept-a-form-submit-in-javascript-and-prevent-normal-submission*/
+/*The below function is called once the main window is loaded.  This adds an event listener to the form section in the HTML which listens for a submit action.  Once the submit action occurs, the form input data is passed to the nameToCoord function and that function is called*/
 function takeCityInput() {
     document.getElementById('my-form').addEventListener("submit", function (e) {
         e.preventDefault();
+        /*End of borrowed section*/
         document.getElementById('scroll').className = "";
-        /*document.getElementById('error_messages').innerHTML = "";*/
         string = "";
         document.getElementById('results').innerHTML = "";
         document.getElementById("loader").className = "col-sm-12 col-md-6 col-lg-3 final-column-format loading-screen";
@@ -34,8 +35,8 @@ function takeCityInput() {
     })
 };
 
+/*The below function is inspired by code institute code on the following page, however, it has been significantly modified for my own purpose: https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+IFD101+2017_T3/courseware/d9c42d8f3a174e5bae5dd2eb9ace629d/7c2d321daf6941818efbe43e42f0c62d/?child=first*/
 function nameToCoord(cityIntput, typeOfPlaceInput) {
-    /*this is taken from code institue*/
     function getData(cb) {
         var xhr = new XMLHttpRequest();
 
@@ -45,9 +46,7 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 let jsonData = JSON.parse(this.responseText);
-                console.log(jsonData);
                 if (jsonData.results.length == 0) {
-                    console.log("hello");
                     document.getElementById("loader").className = "col-sm-12 col-md-6 col-lg-3 final-column-format";
                     setTimeout(function () {
                         alert("Invalid City or Type of Place");
@@ -58,6 +57,7 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
             }
         };
     }
+    /*End of borrowed code*/
 
     function createTextSearchRequest(coords, typeOfPlace) {
         map.setCenter(coords);
@@ -93,7 +93,6 @@ function callback(results, status, pagination) {
 
 /*Filters out any of the search results with fewer than 15 reviews then sorts these by their "rating" property*/
 function createReliablePlaces(results) {
-    console.log(results);
     reliablePlaces = [];
     for (let i = 0; i < results.length; i++) {
         results[i].user_ratings_total;
@@ -101,16 +100,13 @@ function createReliablePlaces(results) {
             reliablePlaces.push(results[i])
         }
     }
-    console.log(reliablePlaces);
     reliablePlaces.sort((a, b) => {
-        // return a.rating > b.rating;
         if (a.rating > b.rating) {
             return 1
         } else {
             return -1
         }
     })
-    console.log(reliablePlaces);
     createSameRatingList(reliablePlaces);
 }
 
@@ -134,9 +130,9 @@ function createSameRatingList(reliablePlaces) {
         } else {
             return -1
         }
+        /*End of borrowed section*/
     })
     fiveBest = reliablePlaces.slice(Math.max(reliablePlaces.length - 5, 1));
-    console.log(fiveBest);
     var counter = 0;
     for (var i = 0; i < fiveBest.length; i++) {
         if (fiveBest[i].rating == numberFive.rating) {
@@ -151,11 +147,8 @@ function createSameRatingList(reliablePlaces) {
  prioritized by the number of reviews that they have.*/
 function createFinalList(sameRatingList, fiveBest, counter) {
     var temporaryList = fiveBest.slice(-(5 - counter));
-    console.log(temporaryList);
     var mostReviewsList = sameRatingList.slice(-counter);
-    console.log(mostReviewsList);
     var theList = mostReviewsList.concat(temporaryList);
-    console.log(theList);
     for (var i = 4; i > -1; i = i - 1) {
         createMarker(theList[i], i);
         let lit = `<em><strong>${-i + 5}. ${theList[i].name}</em> | <em>${theList[i].rating}</strong></em> <br>${theList[i].formatted_address}<br>`;
