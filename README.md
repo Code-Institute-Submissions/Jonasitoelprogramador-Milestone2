@@ -37,8 +37,10 @@ there are looking for.  The form has two clearly labelled inputs and a submit bu
 button which deletes any markers that have been already placed on the map and which also renews the list of results in 
 the "Top 5 Results" section.
 
-## Copyright section
-
+## Copyright and contact sections
+Clearly displays copyright and contact information.  In the contact section there is also a link that opens an email 
+platform with an email addressed to Jonasitoelprogramdor@journeyman.com.  This facilitates the user sending an email
+and thus encourages the user to send an email.
 
 
 `python3 -m http.server`
