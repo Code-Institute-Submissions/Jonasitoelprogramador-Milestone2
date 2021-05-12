@@ -42,6 +42,12 @@ Clearly displays copyright and contact information.  In the contact section ther
 platform with an email addressed to Jonasitoelprogramdor@journeyman.com.  This facilitates the user sending an email
 and thus encourages the user to send an email.
 
+## Links section
+Displays icons that open up their respective social media pages in a new tab on clicking.  This allows the user to 
+easily post about, share or find out additional information about the site.
+
+## Note on APIs
+
 
 `python3 -m http.server`
 
