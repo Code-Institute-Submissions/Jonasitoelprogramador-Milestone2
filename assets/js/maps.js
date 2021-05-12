@@ -35,7 +35,10 @@ function takeCityInput() {
     })
 };
 
-/*The below function is inspired by code institute code on the following page, however, it has been significantly modified for my own purpose: https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+IFD101+2017_T3/courseware/d9c42d8f3a174e5bae5dd2eb9ace629d/7c2d321daf6941818efbe43e42f0c62d/?child=first*/
+/*The below function is inspired by code institute code on the following page, however, it has been significantly modified for my own purpose: https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+IFD101+2017_T3/courseware/d9c42d8f3a174e5bae5dd2eb9ace629d/7c2d321daf6941818efbe43e42f0c62d/?child=first
+The createTextSearchRequest function is passed into the getData function which uses the api to transform the input of the city parameter in the html form into coordinates.  These coordinates are passed into the createTextSearchRequest coupled witht he type of place input.  The output is a valid TextSearch request
+which is passed to the TextSearch function in the Google Maps Javascript API.
+Find out more about the api being used in the below function here: https://opencagedata.com/api.*/
 function nameToCoord(cityIntput, typeOfPlaceInput) {
     function getData(cb) {
         var xhr = new XMLHttpRequest();
@@ -144,7 +147,8 @@ function createSameRatingList(reliablePlaces) {
 
 /*The counter variable is used to manipulate the final list that is passed to the createMarker function
  in order that if several places have the same rating, the ones that are included in the final list are 
- prioritized by the number of reviews that they have.*/
+ prioritized by the number of reviews that they have.  This function also places the list in a template literal
+ which displays the list on the web app*/
 function createFinalList(sameRatingList, fiveBest, counter) {
     var temporaryList = fiveBest.slice(-(5 - counter));
     var mostReviewsList = sameRatingList.slice(-counter);
