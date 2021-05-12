@@ -1,45 +1,45 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# City Search
 
-Welcome Jonasitoelprogramador,
+City Search is a web app that aims to make it easier for people to find well-reviewed activities and/or places in a given city.
+The user will input an activity or type of place (e.g. tennis courts or Italian restaurant) and a city and will be returned a 
+list of the five best-reviewed instances of said activity or type of place within the inputted city.  These results will also 
+be displayed on a map.  The idea is to save the user from having to spend time sifting through a "dump" of search results by
+returning the top 5 best reviewed results.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+This site targets anyone who lives in a city and who enjoys discovering new places and activities.  The site is also perfect 
+for tourists who want to find the best places to go quickly and easily.
 
-## Gitpod Reminders
+The site aims to achieve its goal by having good, crisp UX which produces a positive reaction in the user, powerful and well-
+designed search and filtering functionality and responsive design to allow the site to be accessed on any screen size.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Features
+The site is formed of one page and has a header, footer and main body. 
+
+# Resposive nabar 
+
+This is contained in the header section and has a "hamburger" toggle that allows the user to access a "Home" link and an "About"
+link.  The former refreshes the markers on the map and resets the "The Top 5" column (more on this below).  The "About" link 
+opens up a Bootstrap modal which contains text relating to the purpose and idea behind the site.
+
+## Title and subtitle
+There is a clear title displaying the name of the site for the user to see as well as a smaller subtitle which gives more
+information about the site without overloading the user.
+
+## Map section
+The map section displays a map which is used to show the location of each of the results that are returned from the 
+search function.  This is achieved by placing pointers or "markers" on the map.  This allows the results to be displayed visually as well as in text format thus improving UX by 
+adding to the visual intrigue of the site.  The map also obviously shows where the places/activities are 
+within the city meaning the user does not need to visit another site for directions.
+
+## Form section
+The form section allows the user to input the city that they would like to search as welll as what type of place/activity 
+there are looking for.  The form has two clearly labelled inputs and a submit button.  There is also a "Refresh Markers"
+button which deletes any markers that have been already placed on the map and which also renews the list of results in 
+the "Top 5 Results" section.
+
+## Copyright section
+
+
 
 `python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
----
-
-Happy coding!
