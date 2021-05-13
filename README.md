@@ -130,7 +130,7 @@ Result: It does.
 1. As a first time user, I want to have a positive emotional response when visiting the site (be impressed with the quality
  of the website) so that I am encourgaed to return.
     * The website uses a variety of different fonts as well as a colour schemata in order to give the impression of quality.
-    * There are various styled interactive parts of the website such as a "burger" navbar toggle and a Bootstrap modal box.
+    * There are various styled interactive parts of the website such as a "burger" navbar (../assets/images/screenshots/testing/navbar.png) toggle and a Bootstrap modal box.
       There is also a hover effect on the submit and refresh marker buttons as well as on the media links.
 
 2. As a first time user, I want to be able to easily understand the aim and idea behind the site.
@@ -145,9 +145,25 @@ see where these places are on a map.
     * Intuitive form and buttons which are easily recognisable across the web.
     * HTML and Javascript alerts in order to aid the user with invalid inputs.
     * Clear loading animation that is activated on clicking of the submit button demontrating to user responsiveness of the 
-    site.
-    
+    site (../assets/images/screenshots/testing/loader.png).
 
+4. As a first time user, I want to be able to repeatedly use the search function with running into any bugs and without 
+any negative effect on UX.
+    * See Search functionality testing section of readMe for detailed description of robust testing for search functionality 
+of the app.
+
+5. As a Returning Visitor, I want to be able to contact the site owner and be able to find and use their social meadia links.
+    * The sociial media links are clearly displayed in the footer of the site.  There are represented by icons which make 
+    them more eye-catching for the user.  In addition the icons/link change colour when hovered over.
+    * There is a clearly-labelled "Contact" section which contains a link which takes the user to their email platform
+    with a pre-inputted email addressed to the owner of the site.
+    (../assets/images/screenshots/testing/media-links.png)
+    (../assets/images/screenshots/testing/contact.png)
+
+6. As a Returning Visitor, I want to be able to access the website on various different screen sizes and for it to evoke a 
+positive response.
+    * The site uses a combination of Bootstrap responsive design and media queries in order to ensure UX remains consistent
+    and of high quality on any screen-size. 
 
 
 `python3 -m http.server`
