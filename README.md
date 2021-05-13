@@ -186,7 +186,10 @@ of the returned results.
 
 ### Languages
 
-HTML5 was used in order to provide the text content the structure of the site. CSS3 was used to add styling.
+HTML5 was used in order to provide the text content the structure of the site.   
+CSS3 was used to add styling.
+Javascript (ECMAScript 2018) was used in order to add interactivity and to manipulate the API functionailty and 
+output.
 
 ### Frameworks, Libraries and Programs
 
@@ -210,7 +213,12 @@ results. (link: https://developers.google.com/maps/documentation/javascript/plac
 
 Google Maps API was used in order to display the interactive map. (link: https://developers.google.com/maps/documentation/javascript/overview?hl=en)
 
-OpenCage Geocoding API was used to convert the string inputted by the user into coordinates. 
+OpenCage Geocoding API was used to convert the string inputted by the user into coordinates. (link: https://opencagedata.com/api)
+
+## Credits
+
+Please set the inline comments across the CSS, HTML and JS files for any code that has been taken from third parties.  Any borrowed code is
+clearly labelled as such.
 
 `python3 -m http.server`
 
