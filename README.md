@@ -150,7 +150,7 @@ see where these places are on a map.
 4. As a first time user, I want to be able to repeatedly use the search function with running into any bugs and without 
 any negative effect on UX.
     * See Search functionality testing section of readMe for detailed description of robust testing for search functionality 
-of the app.
+    of the app.
 
 5. As a Returning Visitor, I want to be able to contact the site owner and be able to find and use their social meadia links.
     * The sociial media links are clearly displayed in the footer of the site.  There are represented by icons which make 
@@ -164,6 +164,9 @@ of the app.
 positive response.
     * The site uses a combination of Bootstrap responsive design and media queries in order to ensure UX remains consistent
     and of high quality on any screen-size. 
+    (../assets/images/screenshots/testing/responsive-design.png)
+
+###Bugs
 
 
 `python3 -m http.server`
