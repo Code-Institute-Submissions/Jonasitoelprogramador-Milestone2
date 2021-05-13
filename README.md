@@ -166,8 +166,51 @@ positive response.
     and of high quality on any screen-size. 
     (../assets/images/screenshots/testing/responsive-design.png)
 
-###Bugs
+### Bugs
 
+Bug: The "The Top 5" section would only occupy half of its intended column width after submit button was pressed when
+screen width was less than 990px.
+Fix: The rightmost column in the upper Bootsrap row was not being assigned the correct width at smaller breakpoints. 
+Javascript code was modified at line 53, 91 in order to rectify this.
+
+Bug: The javascript alert that is called when the input of the "City" field is not valid was causing the loading 
+animation to continue despite code removing it (the loading-screen class) from the DOM.
+Fix: A timeout of 100ms was set in order to give the JS code time to remove the loading-screen class from the
+DOM before the alert prevented this from happening.     
+
+Bug: The textsearch function would only return 20 results rather than the maximum of 60. 
+Fix: I used a pagination method (JS lines 87-89) inside the callback function (JS lines 81) in order to access all 
+of the returned results. 
+
+## Technologies
+
+### Languages
+
+HTML5 was used in order to provide the text content the structure of the site. CSS3 was used to add styling.
+
+### Frameworks, Libraries and Programs
+
+Bootstrap: was used to add responsivess and to aid with the structure of the site. 
+(link: https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+
+Hover.CSS3: was used on the media links in the header and the social media links in the footer in order that they
+take on a different colour when hovered over. (link: https://ianlunn.github.io/Hover/)
+
+Google Fonts: was used in order to import one of the fonts that is used across the website ('Abril Fatface'). 
+(link: https://fonts.google.com/).
+
+Git: was used to save changes in the website's files. Gitpod terminal was used to save changes to Git and Push to send these changes to GitHub. (link: https://git-scm.com/)
+
+GitHub: where the files are stored after being "pushed". (link: https://github.com/)
+
+Balsamiq: was used to create wireframes of the website to serve as a reference point when coding. (link: https://balsamiq.com/).
+
+The Places Library service within the Google Maps API was used to search for different places within a given area and return the 
+results. (link: https://developers.google.com/maps/documentation/javascript/places?hl=en#TextSearchRequests).
+
+Google Maps API was used in order to display the interactive map. (link: https://developers.google.com/maps/documentation/javascript/overview?hl=en)
+
+OpenCage Geocoding API was used to convert the string inputted by the user into coordinates. 
 
 `python3 -m http.server`
 
