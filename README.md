@@ -93,16 +93,60 @@ More information re this API via this link: https://opencagedata.com/api.
 
 ## Testing
 
-## Searoch function
-The search function and display in the app is interactive, uses tw different APIs and manipulates and filters various
-different data types.  Therefore, this section needs to be tested robustly in order to ensure consistent functionality.
-Please refer to the images folder in assets for images of the testing process.
+### Search functionality testing
+The search function and display in the app is interactive, uses two different APIs and manipulates and filters various
+different data types.  This section needs to be tested robustly in order to ensure consistent functionality.
+Therefore, I have devised various specific tests in order to ensure this feature is not buggy:
 
-### Manual Testing
+1. Test:  Input of a valid city and valid type of place before pressing submit.    
+Result: The function returns a set of markers correctly distributed on the map as well as a list of results in the 
+respective section.
+(../assets/images/screenshots/testing/preliminary-submit.png) 
+
+2. Test: Input of a valid city and valid type of place before pressing submit (directly after first submit).  
+Result: As above.
+(../assets/images/screenshots/testing/secondary-submit.png).
+
+3. Test: Input of a string which does not correspond to a real place.  
+Result: Javascript alert with "Invalid City or Type of Place".
+(../assets/images/screenshots/testing/invalid-input.png)
+
+4. Test: No input.   
+Result: This is caught by the HTML form "required parameter".
+(../assets/images/screenshots/testing/no-input.png)
+
+5. Test: Click on the "refresh markers" button.  
+Result: Markers, map centre and text in "The Top Five" section are refreshed.
+(../assets/images/screenshots/testing/refresh-markers.png).
+
+6. Test: Use the search function directly after having clicked the "refresh markers" button.  
+Result: Same result as in first and second tests.
+
+7. Test: Throughout the above tests, ensure the loading animation behaves consistetly.  
+Result: It does.
+
+
+### User Story Testing
 1. As a first time user, I want to have a positive emotional response when visiting the site (be impressed with the quality
  of the website) so that I am encourgaed to return.
-i. The chdsfyeileuhth eriluhguhieriu vutrhuilrt ugtr 
+    * The website uses a variety of different fonts as well as a colour schemata in order to give the impression of quality.
+    * There are various styled interactive parts of the website such as a "burger" navbar toggle and a Bootstrap modal box.
+      There is also a hover effect on the submit and refresh marker buttons as well as on the media links.
 
+2. As a first time user, I want to be able to easily understand the aim and idea behind the site.
+    * There is a clearly labelled "About" link in the navbar which brings up a Bootstap modal with text explaining the objective
+    and reasoning behind the site (../assets/images/screenshots/testing/modal-box.png).
+    * There is a selection of media links in the footer to allow the user to quickly access social media in order to find out
+    more information about the site (../assets/images/screenshots/testing/media-links.png).
+
+3. As a first time user, I want to be able to use the search function in order to quickly find high-rated places and to 
+see where these places are on a map.
+    * Easily legible titles with high contrast so the user can locate and use interactive areas of the site.
+    * Intuitive form and buttons which are easily recognisable across the web.
+    * HTML and Javascript alerts in order to aid the user with invalid inputs.
+    * Clear loading animation that is activated on clicking of the submit button demontrating to user responsiveness of the 
+    site.
+    
 
 
 
