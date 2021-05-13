@@ -12,6 +12,22 @@ for tourists who want to find the best places to go quickly and easily.
 The site aims to achieve its goal by having good, crisp UX which produces a positive reaction in the user, powerful and well-
 designed search and filtering functionality and responsive design to allow the site to be accessed on any screen size.
 
+## User Stories
+
+### First-time-users
+1. As a first time user, I want to have a positive emotional response when visiting the site (be impressed with the quality
+ of the website) so that I am encourgaed to return.
+2. As a first time user, I want to be able to easily understand the aim and idea behind the site.
+3. As a first time user, I want to be able to use the search function in order to quickly find high-rated places and to 
+see where these places are on a map.
+
+### Returning-time-users
+1.  As a first time user, I want to be able to repeatedly use the search function with running into any bugs and without 
+any negative effect on UX.
+2. As a Returning Visitor, I want to be able to contact the site owner and be able to find and use their social meadia links.
+3. As a Returning Visitor, I want to be able to access the website on various different screen sizes and for it to evoke a 
+positive response.
+
 ## Features
 The site is formed of one page and has a header, footer and main body. 
 
@@ -21,32 +37,73 @@ This is contained in the header section and has a "hamburger" toggle that allows
 link.  The former refreshes the markers on the map and resets the "The Top 5" column (more on this below).  The "About" link 
 opens up a Bootstrap modal which contains text relating to the purpose and idea behind the site.
 
-## Title and subtitle
+### Title and subtitle
 There is a clear title displaying the name of the site for the user to see as well as a smaller subtitle which gives more
 information about the site without overloading the user.
 
-## Map section
+### Map section
 The map section displays a map which is used to show the location of each of the results that are returned from the 
 search function.  This is achieved by placing pointers or "markers" on the map.  This allows the results to be displayed visually as well as in text format thus improving UX by 
 adding to the visual intrigue of the site.  The map also obviously shows where the places/activities are 
 within the city meaning the user does not need to visit another site for directions.
 
-## Form section
+### Form section
 The form section allows the user to input the city that they would like to search as welll as what type of place/activity 
 there are looking for.  The form has two clearly labelled inputs and a submit button.  There is also a "Refresh Markers"
 button which deletes any markers that have been already placed on the map and which also renews the list of results in 
 the "Top 5 Results" section.
 
-## Copyright and contact sections
+### Copyright and contact sections
 Clearly displays copyright and contact information.  In the contact section there is also a link that opens an email 
 platform with an email addressed to Jonasitoelprogramdor@journeyman.com.  This facilitates the user sending an email
 and thus encourages the user to send an email.
 
-## Links section
+### Links section
 Displays icons that open up their respective social media pages in a new tab on clicking.  This allows the user to 
 easily post about, share or find out additional information about the site.
 
-## Note on APIs
+### Note on APIs
+This project uses two different APIs in order to provide the functionality explained above.  How these APIs are
+manipulated can be observed in maps.js section of this app, however, I will briefly explain in words the role of
+the APIs in this project.
+
+### Google Maps Javascript API
+This is an API provided by Google.  This project uses the Places Library within the Gmaps JS API which contains 
+various functions that allow the user to search for places within a given area.  This application uses the 
+TextSearch function where a search string, the coordinates of a given city and search radius are inputted 
+and an array of objects is returned (the search string and city are inputted by the user).  Each object 
+represents a place that matches the search string within the specified radius.
+
+Each object in this array of objects has both a "rating" (the average of all of the review scores for that place) 
+property and a "user_ratings_total" (the number of review scores) property and this is what is used to filter the
+objects.  That is, any object with a user_ratings_total of less than 15 is immediately discarded in order to 
+ensure reliability of the rating values.  The five objects with the highest ratings are then selected and passed
+to a function that represents these places on the site. 
+Nb. If there is more than one object with the same rating value, the object(s) with a higher number of reviews is
+prioritized for selection.
+
+More information via this link: https://developers.google.com/maps/documentation/javascript/places?hl=en#TextSearchRequests.
+
+### Open Cage Geocoding API
+The second API in this project is used to transform the "city" value which is inputted via an HTML form by the user 
+from a string to coordinates.  This is necessary because the Gmaps API TextSearch takes coordinates for the location
+parameter in its request.
+
+More information re this API via this link: https://opencagedata.com/api.
+
+## Testing
+
+## Searoch function
+The search function and display in the app is interactive, uses tw different APIs and manipulates and filters various
+different data types.  Therefore, this section needs to be tested robustly in order to ensure consistent functionality.
+Please refer to the images folder in assets for images of the testing process.
+
+### Manual Testing
+1. As a first time user, I want to have a positive emotional response when visiting the site (be impressed with the quality
+ of the website) so that I am encourgaed to return.
+i. The chdsfyeileuhth eriluhguhieriu vutrhuilrt ugtr 
+
+
 
 
 `python3 -m http.server`
