@@ -47,6 +47,10 @@ p {
     font-size: 25px;
 }
 
+.nav-style:hover {
+    color: #9c94cc;
+}
+
 .centre-90 {
     margin: auto;
     width: 90%;
