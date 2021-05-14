@@ -336,6 +336,10 @@ p {
     .my-buttons {
         font-size: 20px !important;
     }
+
+    #map {
+        border-right: 10px solid #94bcccce;
+    }
 }
 
 @media only screen and (max-width: 963px) {
@@ -366,6 +370,17 @@ p {
     .city-search-h1-center {
         margin: auto;
         width: 65%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .middle-column-format {
+        border-right: 10px solid #94bcccce;
+
+    }
+
+    .final-column-format {
+        border-left: 10px solid #94bcccce;
     }
 }
 

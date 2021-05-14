@@ -21,7 +21,7 @@ designed search and filtering functionality and responsive design to allow the s
 3. As a first time user, I want to be able to use the search function in order to quickly find high-rated places and to 
 see where these places are on a map.
 
-### Returning-time-users
+### Returning-users
 1.  As a first time user, I want to be able to repeatedly use the search function with running into any bugs and without 
 any negative effect on UX.
 2. As a Returning Visitor, I want to be able to contact the site owner and be able to find and use their social meadia links.
@@ -31,7 +31,7 @@ positive response.
 ## Features
 The site is formed of one page and has a header, footer and main body. 
 
-# Resposive nabar 
+### Resposive nabar 
 
 This is contained in the header section and has a "hamburger" toggle that allows the user to access a "Home" link and an "About"
 link.  The former refreshes the markers on the map and resets the "The Top 5" column (more on this below).  The "About" link 
@@ -124,7 +124,6 @@ Result: Same result as in first and second tests.
 
 7. Test: Throughout the above tests, ensure the loading animation behaves correctly.  
 Result: No issues.
-
 
 ### User Story Testing
 1. As a first time user, I want to have a positive emotional response when visiting the site (be impressed with the quality
@@ -241,8 +240,6 @@ The former is used more for titles and prominent links and the latter any other 
 [Wireframes image link](./assets/images/wireframes/)
 
 ## Deployment
-
-##Deployment
 
 The project was deployed to GitHub Pages using the following steps...
 
