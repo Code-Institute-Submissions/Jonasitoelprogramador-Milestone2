@@ -101,23 +101,23 @@ Therefore, I have devised various specific tests in order to ensure this feature
 1. Test:  Input of a valid city and valid type of place before pressing submit.    
 Result: The function returns a set of markers correctly distributed on the map as well as a list of results in the 
 respective section.
-(../assets/images/screenshots/testing/preliminary-submit.png) 
+[screenshot evidence](./assets/images/screenshots/testing/preliminary-submit.png) 
 
 2. Test: Input of a valid city and valid type of place before pressing submit (directly after first submit).  
 Result: As above.
-(../assets/images/screenshots/testing/secondary-submit.png).
+[screenshot evidence](./assets/images/screenshots/testing/secondary-submit.png).
 
 3. Test: Input of a string which does not correspond to a real place.  
 Result: Javascript alert with "Invalid City or Type of Place".
-(../assets/images/screenshots/testing/invalid-input.png)
+[screenshot evidence](./assets/images/screenshots/testing/invalid-input.png)
 
 4. Test: No input.   
 Result: This is caught by the HTML form "required parameter".
-(../assets/images/screenshots/testing/no-input.png)
+[screenshot evidence](./assets/images/screenshots/testing/no-input.png)
 
 5. Test: Click on the "refresh markers" button.  
 Result: Markers, map centre and text in "The Top Five" section are refreshed.
-(../assets/images/screenshots/testing/refresh-markers.png).
+[screenshot evidence](./assets/images/screenshots/testing/refresh-markers.png).
 
 6. Test: Use the search function directly after having clicked the "refresh markers" button.  
 Result: Same result as in first and second tests.
@@ -145,7 +145,7 @@ see where these places are on a map.
     * Intuitive form and buttons which are easily recognisable across the web.
     * HTML and Javascript alerts in order to aid the user with invalid inputs.
     * Clear loading animation that is activated on clicking of the submit button demontrating to user responsiveness of the 
-    site (../assets/images/screenshots/testing/loader.png).
+    site [image link](./assets/images/screenshots/testing/loader.png).
 
 4. As a first time user, I want to be able to repeatedly use the search function with running into any bugs and without 
 any negative effect on UX.
@@ -157,14 +157,14 @@ any negative effect on UX.
     them more eye-catching for the user.  In addition the icons/link change colour when hovered over.
     * There is a clearly-labelled "Contact" section which contains a link which takes the user to their email platform
     with a pre-inputted email addressed to the owner of the site.
-    (../assets/images/screenshots/testing/media-links.png)
-    (../assets/images/screenshots/testing/contact.png)
+    [media links image link](../assets/images/screenshots/testing/media-links.png)
+    [contact image link](../assets/images/screenshots/testing/contact.png)
 
 6. As a Returning Visitor, I want to be able to access the website on various different screen sizes and for it to evoke a 
 positive response.
     * The site uses a combination of Bootstrap responsive design and media queries in order to ensure UX remains consistent
     and of high quality on any screen-size. 
-    (../assets/images/screenshots/testing/responsive-design.png)
+    [image link](../assets/images/screenshots/testing/responsive-design.png)
 
 ### Bugs
 
@@ -231,7 +231,7 @@ The former is used more for titles and prominent links and the latter any other 
 
 ## Wireframes
 
-[Wireframes] (./assets/wireframes/wireframes_for_journeyman)
+[Wireframes image link](./assets/images/wireframes/)
 
 ## Deployment
 
@@ -263,5 +263,5 @@ clearly labelled as such.
 
 The "Deployment" section of the Readme file is obtained from the Code Institue SampleREADME document which can be found: (https://github.com/Code-Institute-Solutions/SampleREADME/blob/master/README.md).
 
-`python3 -m http.server`
+Use the following code to run the project in server: `python3 -m http.server`
 
