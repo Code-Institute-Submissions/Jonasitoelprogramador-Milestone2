@@ -32,8 +32,8 @@ function takeCityInput() {
         cityIntput = document.getElementById('my-form').elements['city'].value;
         typeOfPlaceInput = document.getElementById('my-form').elements['type_of_place'].value;
         nameToCoord(cityIntput, typeOfPlaceInput);
-    })
-};
+    });
+}
 
 /*The below function is inspired by code institute code on the following page, however, it has been significantly modified for my own purpose: https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+IFD101+2017_T3/courseware/d9c42d8f3a174e5bae5dd2eb9ace629d/7c2d321daf6941818efbe43e42f0c62d/?child=first
 The createTextSearchRequest function is passed into the getData function which uses the api to transform the input of the city parameter in the html form into coordinates.  These coordinates are passed into the createTextSearchRequest coupled witht he type of place input.  The output is a valid TextSearch request
@@ -55,8 +55,8 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
                         alert("Invalid City or Type of Place");
                     }, 100);
                 } else {
-                    cb(jsonData.results[0].geometry, typeOfPlaceInput)
-                };
+                    cb(jsonData.results[0].geometry, typeOfPlaceInput);
+                }
             }
         };
     }
@@ -64,7 +64,7 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
 
     function createTextSearchRequest(coords, typeOfPlace) {
         map.setCenter(coords);
-        map.setZoom(10)
+        map.setZoom(10);
         const request = {
             query: typeOfPlace,
             location: coords,
@@ -98,18 +98,17 @@ function callback(results, status, pagination) {
 function createReliablePlaces(results) {
     reliablePlaces = [];
     for (let i = 0; i < results.length; i++) {
-        results[i].user_ratings_total;
         if (results[i].user_ratings_total >= 15) {
-            reliablePlaces.push(results[i])
+            reliablePlaces.push(results[i]);
         }
     }
     reliablePlaces.sort((a, b) => {
         if (a.rating > b.rating) {
-            return 1
+            return 1;
         } else {
-            return -1
+            return -1;
         }
-    })
+    });
     createSameRatingList(reliablePlaces);
 }
 
@@ -125,22 +124,22 @@ function createSameRatingList(reliablePlaces) {
         if (reliablePlaces[i].rating == numberFive.rating) {
             sameRatingList.push(reliablePlaces[i]);
         }
-    };
+    }
     /*taken from https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/ */
     sameRatingList.sort((a, b) => {
         if (a.user_ratings_total > b.user_ratings_total) {
-            return 1
+            return 1;
         } else {
-            return -1
+            return -1;
         }
         /*End of borrowed section*/
-    })
+    });
     fiveBest = reliablePlaces.slice(Math.max(reliablePlaces.length - 5, 1));
     var counter = 0;
-    for (var i = 0; i < fiveBest.length; i++) {
+    for (i = 0; i < fiveBest.length; i++) {
         if (fiveBest[i].rating == numberFive.rating) {
             counter = counter + 1;
-        };
+        }
     }
     createFinalList(sameRatingList, fiveBest, counter);
 }
@@ -159,7 +158,7 @@ function createFinalList(sameRatingList, fiveBest, counter) {
         string = string + lit;
     }
     document.getElementById('results').innerHTML = string;
-    document.getElementById('scroll').className = "scroll main-font max-height-459"
+    document.getElementById('scroll').className = "scroll main-font max-height-459";
 }
 
 
@@ -190,6 +189,6 @@ function createMarker(input, i) {
             "</div>"
         );
         infowindow.open(map, this);
-    })
+    });
 
 }
