@@ -5,7 +5,6 @@ let allResults = [];
 let displayResults = [];
 let string = "";
 
-
 /*Function called when map initializes.  Centers map, builds Google's PLacesServices object and applies textSearch method to it.*/
 function initMap() {
     const world = new google.maps.LatLng(0.1768696, 37.9083264);
@@ -160,7 +159,6 @@ function createFinalList(sameRatingList, fiveBest, counter) {
     document.getElementById('results').innerHTML = string;
     document.getElementById('scroll').className = "scroll main-font max-height-459";
 }
-
 
 function createMarker(input, i) {
     const marker = new google.maps.Marker({

@@ -166,6 +166,13 @@ positive response.
     and of high quality on any screen-size. 
     [image link](../assets/images/screenshots/testing/responsive-design.png)
 
+### Automated testing
+The HTML and the CSS code were put through the W3C schools HTML and CSS validators respectively to eliminated any potential syntax errors.
+(HTML: https://validator.w3.org/)
+(CSS: https://jigsaw.w3.org/css-validator/)
+
+The javascript code was put through a code beautifier also to eliminate syntax errors (link:https://beautifytools.com/javascript-validator.php).
+
 ### Bugs
 
 Bug: The "The Top 5" section would only occupy half of its intended column width after submit button was pressed when
