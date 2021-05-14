@@ -122,8 +122,8 @@ Result: Markers, map centre and text in "The Top Five" section are refreshed.
 6. Test: Use the search function directly after having clicked the "refresh markers" button.  
 Result: Same result as in first and second tests.
 
-7. Test: Throughout the above tests, ensure the loading animation behaves consistetly.  
-Result: It does.
+7. Test: Throughout the above tests, ensure the loading animation behaves correctly.  
+Result: No issues.
 
 
 ### User Story Testing
@@ -169,16 +169,16 @@ positive response.
 ### Bugs
 
 Bug: The "The Top 5" section would only occupy half of its intended column width after submit button was pressed when
-screen width was less than 990px.
+screen width was less than 990px.  
 Fix: The rightmost column in the upper Bootsrap row was not being assigned the correct width at smaller breakpoints. 
 Javascript code was modified at line 53, 91 in order to rectify this.
 
 Bug: The javascript alert that is called when the input of the "City" field is not valid was causing the loading 
-animation to continue despite code removing it (the loading-screen class) from the DOM.
+animation to continue despite code removing it (the loading-screen class) from the DOM.  
 Fix: A timeout of 100ms was set in order to give the JS code time to remove the loading-screen class from the
 DOM before the alert prevented this from happening.     
 
-Bug: The textsearch function would only return 20 results rather than the maximum of 60. 
+Bug: The textsearch function would only return 20 results rather than the maximum of 60.  
 Fix: I used a pagination method (JS lines 87-89) inside the callback function (JS lines 81) in order to access all 
 of the returned results. 
 
@@ -215,10 +215,53 @@ Google Maps API was used in order to display the interactive map. (link: https:/
 
 OpenCage Geocoding API was used to convert the string inputted by the user into coordinates. (link: https://opencagedata.com/api)
 
+Color-Calculator was used to find a harmonious colour scheme: (link: https://www.sessions.edu/color-calculator/)
+
+## Design
+
+### Colour Scheme
+
+There are three main colours: white, violet and pastel blue. These colours was chosen both for their colour harmony and to allow for high levels
+of contrast for UX purposes.
+
+### Typography
+
+The two fonts used across the site are "Abril Fatface" and "Courier New" with backup fonts being "cursive" and "Courier, monospace" respectively.
+The former is used more for titles and prominent links and the latter any other text.
+
+## Wireframes
+
+[Wireframes] (./assets/wireframes/wireframes_for_journeyman)
+
+## Deployment
+
+##Deployment
+
+The project was deployed to GitHub Pages using the following steps...
+
+Log in to GitHub and locate the GitHub Repository At the top of the Repository (not top of page), locate the "Settings" Button on the menu...Scroll down the Settings page until you locate the "GitHub Pages" Section. Under "Source", click the dropdown called "None" and select "Master Branch". The page will automatically refresh. Scroll back down through the page to locate the now published site link in the "GitHub Pages" section.
+
+## Accessibility
+
+The aim of this project with regards to accessibility is to ensure that there is text explanation across all features to build 
+a site that is usable for people that use screen readers.  If a feature already has a title/text explaining its function there
+is no need to add additional text.  However, in certain cases, such as in the case of the media links, there is no text explaining
+the function of the link.  Therefore, an aria-label has been added to each link to explain its function.  
+
+In addition, there are two input fields in the site, each of which corresponds to a label element.  The relationship between these
+two elements can be unclear for a user with a screen reader so the class "labelledby" has been added to both of the input fields 
+in order to show their relationship to their respective label elements. 
+
 ## Credits
+
+### Content
 
 Please set the inline comments across the CSS, HTML and JS files for any code that has been taken from third parties.  Any borrowed code is
 clearly labelled as such.
+
+### ReadMe
+
+The "Deployment" section of the Readme file is obtained from the Code Institue SampleREADME document which can be found: (https://github.com/Code-Institute-Solutions/SampleREADME/blob/master/README.md).
 
 `python3 -m http.server`
 
