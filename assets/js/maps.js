@@ -67,7 +67,7 @@ function nameToCoord(cityIntput, typeOfPlaceInput) {
         const request = {
             query: typeOfPlace,
             location: coords,
-            radius: 2500,
+            radius: 1500,
         };
         service = new google.maps.places.PlacesService(map);
         service.textSearch(request, callback);

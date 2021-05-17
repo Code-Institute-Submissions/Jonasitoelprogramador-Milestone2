@@ -31,7 +31,7 @@ positive response.
 ## Features
 The site is formed of one page and has a header, footer and main body. 
 
-### Resposive nabar 
+### Responsive nabar 
 
 This is contained in the header section and has a "hamburger" toggle that allows the user to access a "Home" link and an "About"
 link.  The former refreshes the markers on the map and resets the "The Top 5" column (more on this below).  The "About" link 
@@ -212,8 +212,6 @@ Git: was used to save changes in the website's files. Gitpod terminal was used t
 
 GitHub: where the files are stored after being "pushed". (link: https://github.com/)
 
-Balsamiq: was used to create wireframes of the website to serve as a reference point when coding. (link: https://balsamiq.com/).
-
 The Places Library service within the Google Maps API was used to search for different places within a given area and return the 
 results. (link: https://developers.google.com/maps/documentation/javascript/places?hl=en#TextSearchRequests).
 
@@ -243,7 +241,10 @@ The former is used more for titles and prominent links and the latter any other 
 
 The project was deployed to GitHub Pages using the following steps...
 
-Log in to GitHub and locate the GitHub Repository At the top of the Repository (not top of page), locate the "Settings" Button on the menu...Scroll down the Settings page until you locate the "GitHub Pages" Section. Under "Source", click the dropdown called "None" and select "Master Branch". The page will automatically refresh. Scroll back down through the page to locate the now published site link in the "GitHub Pages" section.
+Log in to GitHub and locate the GitHub Repository At the top of the Repository (not top of page), locate the "Settings" Button 
+on the menu...Scroll down the Settings page until you locate the "GitHub Pages" Section. Under "Source", click the dropdown 
+called "None" and select "Master Branch". The page will automatically refresh. Scroll back down through the page to locate the 
+now published site link in the "GitHub Pages" section.
 
 ## Accessibility
 
