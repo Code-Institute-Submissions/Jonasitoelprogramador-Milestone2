@@ -100,24 +100,24 @@ Therefore, I have devised various specific tests in order to ensure this feature
 
 1. Test:  Input of a valid city and valid type of place before pressing submit.    
 Result: The function returns a set of markers correctly distributed on the map as well as a list of results in the 
-respective section.
-[screenshot evidence](./assets/images/screenshots/testing/preliminary-submit.png) 
+respective section
+[(screenshot evidence)](./assets/images/screenshots/testing/preliminary-submit.png). 
 
 2. Test: Input of a valid city and valid type of place before pressing submit (directly after first submit).  
-Result: As above.
-[screenshot evidence](./assets/images/screenshots/testing/secondary-submit.png).
+Result: As above
+[(screenshot evidence)](./assets/images/screenshots/testing/secondary-submit.png).
 
 3. Test: Input of a string which does not correspond to a real place.  
-Result: Javascript alert with "Invalid City or Type of Place".
-[screenshot evidence](./assets/images/screenshots/testing/invalid-input.png)
+Result: Javascript alert with "Invalid City or Type of Place"
+[(screenshot evidence)](./assets/images/screenshots/testing/invalid-input.png).
 
 4. Test: No input.   
-Result: This is caught by the HTML form "required parameter".
-[screenshot evidence](./assets/images/screenshots/testing/no-input.png)
+Result: This is caught by the HTML form "required parameter"
+[(screenshot evidence)](./assets/images/screenshots/testing/no-input.png).
 
 5. Test: Click on the "refresh markers" button.  
 Result: Markers, map centre and text in "The Top Five" section are refreshed.
-[screenshot evidence](./assets/images/screenshots/testing/refresh-markers.png).
+[(screenshot evidence)](./assets/images/screenshots/testing/refresh-markers.png).
 
 6. Test: Use the search function directly after having clicked the "refresh markers" button.  
 Result: Same result as in first and second tests.
@@ -129,14 +129,14 @@ Result: No issues.
 1. As a first time user, I want to have a positive emotional response when visiting the site (be impressed with the quality
  of the website) so that I am encourgaed to return.
     * The website uses a variety of different fonts as well as a colour schemata in order to give the impression of quality.
-    * There are various styled interactive parts of the website such as a "burger" navbar (../assets/images/screenshots/testing/navbar.png) toggle and a Bootstrap modal box.
+    * There are various styled interactive parts of the website such as a "burger" navbar toggle and a Bootstrap modal box [(screenshot evidence)](../assets/images/screenshots/testing/navbar.png).
       There is also a hover effect on the submit and refresh marker buttons as well as on the media links.
 
 2. As a first time user, I want to be able to easily understand the aim and idea behind the site.
     * There is a clearly labelled "About" link in the navbar which brings up a Bootstap modal with text explaining the objective
-    and reasoning behind the site (../assets/images/screenshots/testing/modal-box.png).
+    and reasoning behind the site [(screenshot evidence)](../assets/images/screenshots/testing/modal-box.png).
     * There is a selection of media links in the footer to allow the user to quickly access social media in order to find out
-    more information about the site (../assets/images/screenshots/testing/media-links.png).
+    more information about the site [(screenshot evidence)](../assets/images/screenshots/testing/media-links.png).
 
 3. As a first time user, I want to be able to use the search function in order to quickly find high-rated places and to 
 see where these places are on a map.
@@ -152,7 +152,7 @@ any negative effect on UX.
     of the app.
 
 5. As a Returning Visitor, I want to be able to contact the site owner and be able to find and use their social meadia links.
-    * The sociial media links are clearly displayed in the footer of the site.  There are represented by icons which make 
+    * The social media links are clearly displayed in the footer of the site.  There are represented by icons which make 
     them more eye-catching for the user.  In addition the icons/link change colour when hovered over.
     * There is a clearly-labelled "Contact" section which contains a link which takes the user to their email platform
     with a pre-inputted email addressed to the owner of the site.
