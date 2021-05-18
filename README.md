@@ -72,7 +72,8 @@ This is an API provided by Google.  This project uses the Places Library within 
 various functions that allow the user to search for places within a given area.  This application uses the 
 TextSearch function where a search string, the coordinates of a given city and search radius are inputted 
 and an array of objects is returned (the search string and city are inputted by the user).  Each object 
-represents a place that matches the search string within the specified radius.
+represents a place that matches the search string within the specified radius (in this app the radius is set to
+10km).
 
 Each object in this array of objects has both a "rating" (the average of all of the review scores for that place) 
 property and a "user_ratings_total" (the number of review scores) property and this is what is used to filter the
